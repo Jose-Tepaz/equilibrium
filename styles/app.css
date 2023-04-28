@@ -586,8 +586,6 @@ select {
     appearance: none;
 }
 
-select option {}
-
 .wrapper-select {
     position: relative;
 }
