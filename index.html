@@ -18,19 +18,19 @@
     <section class="werapper-all">
         <div class="column-nav">
             <div class="steps">
-                <div class="warpper-step">
+                <div class="warpper-step step-active" id="step-1">
                     <div class="number-step">1</div>
                     <div class="text-step">¿Eres Dr. B360? </div>
                 </div>
-                <div class="warpper-step">
+                <div class="warpper-step" id="step-2">
                     <div class="number-step">2</div>
                     <div class="text-step">Datos personales</div>
                 </div>
-                <div class="warpper-step">
+                <div class="warpper-step" id="step-3">
                     <div class="number-step">3</div>
                     <div class="text-step">Sube tu comprobante de pago</div>
                 </div>
-                <div class="warpper-step">
+                <div class="warpper-step" id="step-4">
                     <div class="number-step">4</div>
                     <div class="text-step">Datos de facturación/fiscales</div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="component-load-dpi">
                         <div id="wrapp-foorm-search" class="wrapp-foorm-search">
                             <h2 class="title-1 title-center"> ¿Eres Dr. B360? </h2>
-                            <p class="paragraph-1">Asegúrate de usar el/los nombre(s) y apellidos con los que te registraste en Borgatta hola</p>
+                            <p class="paragraph-1">Asegúrate de usar el/los nombre(s) y apellidos con los que te registraste en Borgatta</p>
                             <form id="searchForm" class="form-search-name" action="">
                                 <input id="inputName" type="search" placeholder="Nombre" class="serch-input">
                                 <input id="inputApellido" type="search" placeholder="Apellidos" class="serch-input">
@@ -133,7 +133,7 @@
                         </div>
 
                         <div class="wrapper-2-btns">
-                            <button id="btnRegistrarse" class="btn-siguiente" type="button">Siguiente</button>
+                            <button id="btnStep3" class="btn-siguiente" type="button">Siguiente</button>
 
                         </div>
                     </form>
@@ -145,11 +145,11 @@
 
             </div>
 
-            <!--FORMULARIO DATOS DE FACTURACION-->
+            <!--SUBIR COMPROBANTE-->
             <div class=".section-form-update inactive" id="wapperformUpdate2">
                 <div class="container440">
                     <div class="wrapper-arrow-prev" id="prev-step-1">
-                        <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                        <a id="btn-previw-step-2"><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
                         Atrás
                     </div>
                     <form class="component-form-update" action="" id="formNew" name="Formulairo-para-actulizar">
@@ -196,7 +196,12 @@
                 </div>
             </div>
 
+            <!--FORMULARIO DATOS DE FACTURACION-->
             <div class="section-form-invoice inactive" id="invoice-section">
+                <div class="wrapper-arrow-prev" id="prev-step-1">
+                    <a id="preview-step3"><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                    Atrás
+                </div>
                 <form action="" class="form-invoice">
                     <div>
                         <h3 class="title-1">Datos de facturación</h3>
@@ -291,8 +296,9 @@
 
 
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-    <script src="./src/app.js"></script>
     <script src="./src/nodes.js"></script>
+    <script src="./src/app.js"></script>
+
     <script src="./src/img.js"></script>
 
 </body>

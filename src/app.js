@@ -121,12 +121,17 @@ function correoExistente(info, nobre, apellido) {
         wapperformUpdate.classList.remove('inactive')
         wrapperLoadEmail.classList.remove('section-load-email')
         wrapperLoadEmail.classList.add('inactive');
+        /*activa/desactiva-steps*/
+        step1.classList.remove('step-active')
+        step2.classList.add('step-active')
+
     });
 
 };
 
+
 /*FUNCION QUE ALMACENA DATOS APRA ENVIA DE ACTUALIZACION DE MEDICO*/
-const formFacturacion = document.getElementById("wapperformUpdate2");
+const formUploadImg = document.getElementById("wapperformUpdate2");
 
 function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre, apellido) {
 
@@ -137,25 +142,56 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
     console.log(nobre, apellido)
 
 
-    btnRegistrarse.addEventListener("click", () => {
+    btnStep3.addEventListener("click", () => {
 
         const nameValue = document.getElementById("nameInput").value;
         const apellidoValue = document.getElementById("apellidoInput").value;
         const emailValue = document.getElementById("emailInput").value;
-
-
-
         actualizarDatos(nameValue, apellidoValue, emailValue, idApi);
-
-
-
-
-        formFacturacion.classList.remove('inactive');
+        formUploadImg.classList.remove('inactive');
         wapperformUpdate.classList.add('inactive')
+        step2.classList.remove('step-active')
+        step3.classList.add('step-active')
     });
 
 
 }
+
+/*REGRESA AL PASO 2*/
+previwStep2.addEventListener("click", () => {
+    formUploadImg.classList.add('inactive')
+    wapperformUpdate.classList.remove('inactive')
+    step2.classList.add('step-active')
+    step3.classList.remove('step-active')
+
+});
+
+/*REGRESA PASO 3*/
+previewStep3.addEventListener("click", () => {
+    formUploadImg.classList.remove('inactive');
+    invoiceSection.classList.add('inactive');
+    step3.classList.add('step-active');
+    step4.classList.remove('step-active');
+
+});
+
+
+
+
+/*OCULTA SECCION SUBIR COMPROBANTE*/
+const btnsiguienteFact = document.getElementById("btnsiguientefact");
+const invoiceSection = document.getElementById("invoice-section")
+
+btnsiguienteFact.addEventListener("click", () => {
+    formUploadImg.classList.add('inactive')
+    invoiceSection.classList.remove('inactive');
+    step3.classList.remove('step-active');
+    step4.classList.add('step-active');
+
+
+})
+
+
 
 /*FUNCION QUE ENVIA LOS DATOS DE CONTACTO DEL MEDICO*/
 async function actualizarDatos(emailValue, idApi) {

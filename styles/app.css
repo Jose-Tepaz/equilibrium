@@ -168,6 +168,13 @@ h3 {
 .warpper-step {
     display: flex;
     gap: 24px;
+    opacity: 0.5;
+}
+
+.step-active {
+    display: flex;
+    gap: 24px;
+    opacity: 1;
 }
 
 .number-step {
@@ -213,6 +220,7 @@ h3 {
     width: 40px;
     height: 40px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 .content-function {
