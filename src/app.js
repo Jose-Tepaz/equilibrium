@@ -172,7 +172,6 @@ previewStep3.addEventListener("click", () => {
     invoiceSection.classList.add('inactive');
     step3.classList.add('step-active');
     step4.classList.remove('step-active');
-
 });
 
 
@@ -220,13 +219,7 @@ function datosParaFactura(idApi) {
         const tPersona = document.getElementById('tPersona').value;
         const rfcInput = document.getElementById("rfcInput").value;
         const cfdiInput = document.getElementById("cfdiInput").value;
-        const calleInput = document.getElementById("calleInput").value;
-        const noExterior = document.getElementById("noExterior").value;
-        const noInterior = document.getElementById("noInterior").value;
         const codigoPostal = document.getElementById("codigoPostal").value;
-        const localidadInput = document.getElementById("localidadInput").value;
-        const municipioInput = document.getElementById("municipioInput").value;
-        const estadoInput = document.getElementById("estadoInput").value;
         const inputFoto = document.getElementById("user-photo").src;
 
         //if (razonSocialValue.length == 0) {
@@ -262,14 +255,13 @@ function datosParaFactura(idApi) {
         //    enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, //cfdiInput, calleInput, noExterior, noInterior, codigoPostal, //localidadInput, municipioInput, estadoInput, inputFoto);
         //};
 
-        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, calleInput, noExterior, noInterior, codigoPostal, localidadInput, municipioInput, estadoInput, inputFoto);
+        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto);
 
-        console.log(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, calleInput, noExterior, noInterior, codigoPostal, localidadInput, municipioInput, estadoInput, inputFoto);
     });
 
 }
 
-async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, calleInput, noExterior, noInterior, codigoPostal, localidadInput, municipioInput, estadoInput, inputFoto) {
+async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto) {
     const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
         method: 'PATCH',
         headers: {
@@ -283,13 +275,7 @@ async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiI
                 "Tipo-de-persona": tPersona,
                 "RFC-con-homoclave": rfcInput,
                 "Categoria-CFDI": cfdiInput,
-                "Calle": calleInput,
-                "No-exterior": noExterior,
-                "No-interior": noInterior,
                 "Codigo-postal": codigoPostal,
-                "Localidad-colonia": localidadInput,
-                "Municipio-ciudad": municipioInput,
-                "Estado-provincia": estadoInput,
                 "Registrado": true,
             }
         })
