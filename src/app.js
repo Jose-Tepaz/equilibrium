@@ -220,6 +220,7 @@ function datosParaFactura(idApi) {
         const rfcInput = document.getElementById("rfcInput").value;
         const cfdiInput = document.getElementById("cfdiInput").value;
         const codigoPostal = document.getElementById("codigoPostal").value;
+        const inputFoto = document.getElementById("user-photo").src;
 
 
         //if (razonSocialValue.length == 0) {
@@ -255,13 +256,13 @@ function datosParaFactura(idApi) {
         //    enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, //cfdiInput, calleInput, noExterior, noInterior, codigoPostal, //localidadInput, municipioInput, estadoInput, inputFoto);
         //};
 
-        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal);
+        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto);
 
     });
 
 }
 
-async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal) {
+async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto) {
     const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
         method: 'PATCH',
         headers: {

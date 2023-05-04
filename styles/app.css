@@ -216,8 +216,6 @@ h3 {
     display: flex;
     padding: 10px;
     background: #EFF0F6;
-    width: 40px;
-    height: 40px;
     border-radius: 30px;
     cursor: pointer;
 }
@@ -372,7 +370,6 @@ h3 {
 
 .inputForm {
     width: 100%;
-    height: 48px;
     border-radius: 16px;
     padding: 12px 17px;
     border: 1px solid rgba(189, 189, 189, 0.7);
@@ -421,7 +418,6 @@ h3 {
 /*COMPROBANTE*/
 
 .wrapper-card-btn-upl {
-    display: block;
     margin-top: 28px;
 }
 
@@ -579,6 +575,11 @@ h3 {
     line-height: 28px;
     letter-spacing: 0.02em;
     color: #4F4F4F;
+    cursor: pointer;
+}
+
+.btn-select-invoice span:hover {
+    background: #fff;
 }
 
 input[type="radio"] {
@@ -589,6 +590,7 @@ input[type="radio"] {
 input:checked+span {
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(52, 139, 219, 0.1);
+    cursor: pointer;
 }
 
 #wrapper-data-factura {
