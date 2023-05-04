@@ -670,22 +670,97 @@ select {
     gap: 8px;
 }
 
-#wrapper-ok {
-    width: 400px;
-    margin: auto;
-}
-
-.component-ok {
-    background: var(--blue-2);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 24px;
-    border-radius: 20px;
-}
-
 .icon-ok {
     width: 48px;
     margin: auto;
+}
+
+.succes-mesage {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    background: #4EABE5;
+    display: flex;
+    align-items: center;
+}
+
+.succes-mesage {
+    position: fixed;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    background: #4EABE5;
+    background-image: url("/asets/desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.wrapp-succes-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.component-ok {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.component-ok a {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 22px;
+    width: 217px;
+    height: 46px;
+    background: #FBFBFD;
+    border-radius: 64px;
+    border-style: none;
+    color: #3792E6;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    text-decoration: none;
+}
+
+.component-ok h3 {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+.component-ok h2 {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 110%;
+    /* or 46px */
+    text-align: center;
+    color: #F4F4F4;
+    margin-bottom: 24px;
+}
+
+button {
+    cursor: pointer;
 }

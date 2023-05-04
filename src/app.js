@@ -112,6 +112,7 @@ function correoExistente(info, nobre, apellido) {
     const correoApi = info.records[0].fields.Correo;
     const paisApi = info.records[0].fields.Pais;
     const idApi = info.records[0].id;
+    console.log(idApi);
 
 
     btProcederRegistro.addEventListener("click", () => {
@@ -207,6 +208,7 @@ async function actualizarDatos(emailValue, idApi) {
         })
     });
     console.log(response);
+
 }
 
 
@@ -221,6 +223,7 @@ function datosParaFactura(idApi) {
         const cfdiInput = document.getElementById("cfdiInput").value;
         const codigoPostal = document.getElementById("codigoPostal").value;
         const inputFoto = document.getElementById("user-photo").src;
+
 
 
         //if (razonSocialValue.length == 0) {
@@ -297,6 +300,8 @@ const alertOk = document.getElementById("wrapper-ok");
 
 function succes() {
     alertOk.classList.remove("inactive");
+    alertOk.classList.add("succes-mesage");
+
     formFacturacion.classList.add('inactive');
 }
 
