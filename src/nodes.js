@@ -12,3 +12,6 @@ const step4 = document.getElementById("step-4");
 
 const previwStep2 = document.getElementById("btn-previw-step-2");
 const previewStep3 = document.getElementById("preview-step3");
+
+const btnSIgUpload = document.getElementById("btn-sig-upload")
+const cardDataBanc = document.getElementById("card-data-banc");

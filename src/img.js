@@ -9,6 +9,9 @@ let widget_cloudinary = cloudinary.createUploadWidget({
     if (!err && result && result.event === 'success') {
         console.log('Imagen subida con éxito', result.info);
         imagen.src = result.info.secure_url;
+        btnSIgUpload.classList.remove("inactive");
+        cardDataBanc.classList.remove("wrapper-card-btn-upl");
+        cardDataBanc.classList.add("inactive");
 
     }
 });

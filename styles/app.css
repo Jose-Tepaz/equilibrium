@@ -1,4 +1,4 @@
-* {
+ra* {
     box-sizing: border-box;
     padding: 0px 0px;
     margin: 0;
@@ -100,7 +100,6 @@ h3 {
     font-weight: 300;
     font-size: 16px;
     color: var(--gris-medium);
-    text-align: center;
 }
 
 .inactive {
@@ -420,6 +419,11 @@ h3 {
 
 
 /*COMPROBANTE*/
+
+.wrapper-card-btn-upl {
+    display: block;
+    margin-top: 28px;
+}
 
 .paragraph-2 {
     margin-top: 16px;
