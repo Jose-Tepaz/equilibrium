@@ -105,14 +105,24 @@
     .btn-select-invoice span {
         padding: 9px 11px;
         font-size: 16px;
+        text-align: center;
+        line-height: 1.2em;
+        align-items: center;
+        justify-content: center;
     }
     .inputForm {
-        width: auto;
+        width: 100%;
+    }
+    .component-ok {
+        padding: 24px;
     }
     .object-form {
         width: 100%;
     }
     select {
         width: auto;
+    }
+    .component-ok h2 {
+        font-size: 32px;
     }
 }
