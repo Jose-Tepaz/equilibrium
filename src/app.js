@@ -224,8 +224,6 @@ function datosParaFactura(idApi) {
         const codigoPostal = document.getElementById("codigoPostal").value;
         const inputFoto = document.getElementById("user-photo").src;
 
-
-
         //if (razonSocialValue.length == 0) {
         //    Swal.fire({
         //        icon: 'error',
@@ -259,13 +257,25 @@ function datosParaFactura(idApi) {
         //    enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, //cfdiInput, calleInput, noExterior, noInterior, codigoPostal, //localidadInput, municipioInput, estadoInput, inputFoto);
         //};
 
-        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto);
+
+
+        function generarNumeroAleatorio(minimo, maximo) {
+            return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        }
+
+        let numeroAleatorio = generarNumeroAleatorio(1, 100000);
+        console.log(numeroAleatorio);
+        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio);
 
     });
 
 }
 
-async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto) {
+
+
+
+
+async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
     const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
         method: 'PATCH',
         headers: {
@@ -280,6 +290,7 @@ async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiI
                 "RFC-con-homoclave": rfcInput,
                 "Categoria-CFDI": cfdiInput,
                 "Codigo-postal": codigoPostal,
+                "idNumber": numeroAleatorio,
                 "Registrado": true,
             }
         })

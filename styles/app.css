@@ -694,7 +694,7 @@ select {
     height: 100vh;
     z-index: 1000;
     background: #4EABE5;
-    background-image: url("/asets/desktop.svg");
+    background-image: url("../asets/desktop.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
