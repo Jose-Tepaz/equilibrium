@@ -4,6 +4,12 @@
         padding: 0px 0px;
         margin: 0;
     }
+    .mobile-none {
+        display: none;
+    }
+    .desktopNone {
+        display: flex!important;
+    }
     .title-1 {
         font-size: 24px;
     }
@@ -12,12 +18,15 @@
         height: 100%;
         background: #4EABE5;
         padding: 22px 22px;
-        width: 90%;
+        width: 100%;
     }
-    .steps {
-        margin: 0;
-        position: static;
-        flex-direction: row;
+    /*botones*/
+    .form-search-name button {
+        height: 46px;
+    }
+    .btn-siguiente {
+        padding: 9px 22px;
+        height: 46px;
     }
     .column-nav {
         width: 100%;
@@ -28,11 +37,14 @@
         height: 100%;
         background: #fff;
         padding: 48px 24px;
+        border-radius: 24px;
+        margin-top: 48px;
     }
     .general-container {
         width: auto;
     }
     .wrapp-foorm-search {
+        margin-top: 48px;
         width: auto;
     }
     .component-load-dpi {
@@ -40,11 +52,67 @@
     }
     .wrapper-arrow-prev {
         margin: 0;
+        font-size: 16px;
+    }
+    .form-search-name {
+        padding-top: 48px;
+        gap: 16px;
+    }
+    .steps {
+        width: 100%;
+        margin: 0;
+        position: static;
+        flex-direction: row;
+        margin-top: 48px;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
     }
     .warpper-step {
         flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        width: 100%;
     }
     .text-step {
         font-size: 10px;
+        text-align: center;
+    }
+    .number-step {
+        width: 20px;
+        height: 20px;
+        font-size: 13.5px;
+    }
+    .component-form-update {
+        margin-top: 48px;
+    }
+    .container440 {
+        width: 100%;
+    }
+    .paragraph-2 {
+        margin: 0px;
+    }
+    .card-info-pago {
+        padding: 24px;
+        margin-bottom: 0px;
+    }
+    .form-invoice {
+        width: 100%;
+    }
+    .wrapper-btn-si-no {
+        width: auto;
+    }
+    .btn-select-invoice span {
+        padding: 9px 11px;
+        font-size: 16px;
+    }
+    .inputForm {
+        width: auto;
+    }
+    .object-form {
+        width: 100%;
+    }
+    select {
+        width: auto;
     }
 }

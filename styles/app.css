@@ -1,4 +1,4 @@
-ra* {
+* {
     box-sizing: border-box;
     padding: 0px 0px;
     margin: 0;
@@ -67,6 +67,10 @@ h2 {
 h3 {
     font-family: Arial, Helvetica, sans-serif;
     margin: 6px 0;
+}
+
+.desktopNone {
+    display: none!important;
 }
 
 .title-1 {
@@ -370,7 +374,7 @@ h3 {
 }
 
 .inputForm {
-    width: 100%;
+    width: auto;
     border-radius: 16px;
     padding: 12px 17px;
     border: 1px solid rgba(189, 189, 189, 0.7);
