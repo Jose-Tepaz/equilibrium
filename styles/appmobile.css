@@ -1,0 +1,50 @@
+@media only screen and (max-width: 992px) {
+    /* Estilos para pantallas medianas */
+    * {
+        padding: 0px 0px;
+        margin: 0;
+    }
+    .title-1 {
+        font-size: 24px;
+    }
+    .werapper-all {
+        display: block;
+        height: 100%;
+        background: #4EABE5;
+        padding: 22px 22px;
+        width: 90%;
+    }
+    .steps {
+        margin: 0;
+        position: static;
+        flex-direction: row;
+    }
+    .column-nav {
+        width: 100%;
+        min-width: 100%;
+    }
+    .content-function {
+        width: auto;
+        height: 100%;
+        background: #fff;
+        padding: 48px 24px;
+    }
+    .general-container {
+        width: auto;
+    }
+    .wrapp-foorm-search {
+        width: auto;
+    }
+    .component-load-dpi {
+        width: auto;
+    }
+    .wrapper-arrow-prev {
+        margin: 0;
+    }
+    .warpper-step {
+        flex-direction: column;
+    }
+    .text-step {
+        font-size: 10px;
+    }
+}
