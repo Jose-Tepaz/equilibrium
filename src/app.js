@@ -125,6 +125,8 @@ function correoExistente(info, nobre, apellido) {
         /*activa/desactiva-steps*/
         step1.classList.remove('step-active')
         step2.classList.add('step-active')
+        step1m.classList.remove('step-active')
+        step2m.classList.add('step-active')
 
     });
 
@@ -153,6 +155,8 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
         wapperformUpdate.classList.add('inactive')
         step2.classList.remove('step-active')
         step3.classList.add('step-active')
+        step2m.classList.remove('step-active')
+        step3m.classList.add('step-active')
     });
 
 
@@ -164,6 +168,8 @@ previwStep2.addEventListener("click", () => {
     wapperformUpdate.classList.remove('inactive')
     step2.classList.add('step-active')
     step3.classList.remove('step-active')
+    step2m.classList.add('step-active')
+    step3m.classList.remove('step-active')
 
 });
 
@@ -173,6 +179,8 @@ previewStep3.addEventListener("click", () => {
     invoiceSection.classList.add('inactive');
     step3.classList.add('step-active');
     step4.classList.remove('step-active');
+    step3m.classList.add('step-active');
+    step4m.classList.remove('step-active');
 });
 
 
@@ -187,6 +195,9 @@ btnsiguienteFact.addEventListener("click", () => {
     invoiceSection.classList.remove('inactive');
     step3.classList.remove('step-active');
     step4.classList.add('step-active');
+    step3m.classList.remove('step-active');
+    step4m.classList.add('step-active');
+
 
 
 })
