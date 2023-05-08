@@ -169,10 +169,21 @@ h3 {
     position: fixed;
 }
 
+.linetimline {
+    position: absolute;
+    background: rgba(133, 197, 237, 0.6);
+    width: 2px;
+    height: 125px;
+    top: 20px;
+    left: 11px;
+    z-index: 5;
+}
+
 .warpper-step {
     display: flex;
     gap: 24px;
-    opacity: 0.5;
+    opacity: 0.6;
+    z-index: 50;
 }
 
 .step-active {
@@ -374,7 +385,7 @@ h3 {
 }
 
 .inputForm {
-    width: auto;
+    width: 100%;
     border-radius: 16px;
     padding: 12px 17px;
     border: 1px solid rgba(189, 189, 189, 0.7);
