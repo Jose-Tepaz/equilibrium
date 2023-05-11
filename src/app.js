@@ -16,7 +16,7 @@ searchFormBtn.addEventListener('click', () => {
             html: '<h4 class="text-alert">Algo salió mal, campo Nombre Vacío</h4>',
             confirmButtonColor: '#308BBE',
         })
-        return;
+
     }
 
     if (inputApellido.length == 0) {
@@ -71,18 +71,18 @@ async function obtenerDatosAutenticados(nombreCompleto, nombre, apellido) {
     } catch (error) {
         console.log(error);
         console.log("no se ejecuto");
-        correoNoexiste();
+        correoNoexistee();
     }
 };
 
 /* FUNCION QUE MUESTRA ERROR DE CORREO NO EXISTE */
 const wrappFormSearch = document.getElementById("wrapp-foorm-search");
 
-function correoNoexiste() {
-    correoNoExiste.classList.remove('inactive')
-    medicoRegistrado.classList.add("inactive")
-    correoExiste.classList.add('inactive')
-    wrappFormSearch.classList.add('inactive')
+function correoNoexistee() {
+    correoNoExiste.classList.remove('inactive');
+    medicoRegistrado.classList.add("inactive");
+    correoExiste.classList.add('inactive');
+    wrappFormSearch.classList.add('inactive');
 };
 
 /*Muestra Mensaje medico registrado */
@@ -322,7 +322,7 @@ function succes() {
     alertOk.classList.remove("inactive");
     alertOk.classList.add("succes-mesage");
 
-    formFacturacion.classList.add('inactive');
+    //formFacturacion.classList.add('inactive');
 }
 
 
@@ -340,16 +340,16 @@ btnNo.addEventListener("click", () => {
 /*botones volver */
 
 
-btnVolver.addEventListener("click", () => {
-    wrapperLoadEmail.classList.add('section-load-email')
-    wrapperLoadEmail.classList.remove('inactive');
-    wapperformUpdate.classList.add('inactive');
-    location.reload();
-});
-
-const btnVolver2 = document.getElementById("btnVolver2");
-btnVolver2.addEventListener("click", () => {
-    wapperformUpdate.classList.remove('inactive');
-    formFacturacion.classList.add('inactive');
-
-});
+//btnVolver.addEventListener("click", () => {
+//    wrapperLoadEmail.classList.add('section-load-email')
+//    wrapperLoadEmail.classList.remove('inactive');
+//    wapperformUpdate.classList.add('inactive');
+//    location.reload();
+//});
+//
+//const btnVolver2 = document.getElementById("btnVolver2");
+//btnVolver2.addEventListener("click", () => {
+//    wapperformUpdate.classList.remove('inactive');
+//    formFacturacion.classList.add('inactive');
+//
+//});
