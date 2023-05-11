@@ -67,19 +67,21 @@
         gap: 16px;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
     }
     .linetimline {
         width: 220px;
         height: 2px;
         top: 80px;
-        left: 80px;
+        left: auto;
+        right: auto;
         z-index: 5;
     }
     .warpper-step {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 10px;
         width: auto;
     }
     .text-step {

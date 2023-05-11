@@ -13,11 +13,10 @@ searchFormBtn.addEventListener('click', () => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-
             html: '<h4 class="text-alert">Algo salió mal, campo Nombre Vacío</h4>',
             confirmButtonColor: '#308BBE',
-
         })
+        return;
     }
 
     if (inputApellido.length == 0) {
@@ -30,7 +29,6 @@ searchFormBtn.addEventListener('click', () => {
         })
 
     } else {
-
         const nombre = inputName;
         const apellido = inputApellido;
         const nombreCompleto = nombre + " " + apellido;
