@@ -12,20 +12,29 @@ searchFormBtn.addEventListener('click', () => {
     if (inputName.length == 0) {
         Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            html: '<h4 class="text-alert">Algo salió mal, campo Nombre Vacío</h4>',
-            confirmButtonColor: '#308BBE',
-        })
+            html: '<h4 class="title-2">Campo Nombre vacío</h4>',
+            confirmButtonColor: '#3792E6',
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn-siguiente',
+                popup: 'popAlert',
 
+            }
+        })
+        return;
     }
 
     if (inputApellido.length == 0) {
         Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            html: '<h4 class="title-2">Campo Apellido vacío</h4>',
+            confirmButtonColor: '#3792E6',
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn-siguiente',
+                popup: 'popAlert',
 
-            html: '<h4 class="text-alert">Algo salió mal, campo de Apellido Vacío</h4>',
-            confirmButtonColor: '#308BBE',
+            }
         })
 
     } else {
@@ -144,17 +153,40 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
 
 
     btnStep3.addEventListener("click", () => {
-
         const nameValue = document.getElementById("nameInput").value;
         const apellidoValue = document.getElementById("apellidoInput").value;
         const emailValue = document.getElementById("emailInput").value;
-        actualizarDatos(nameValue, apellidoValue, emailValue, idApi);
-        formUploadImg.classList.remove('inactive');
-        wapperformUpdate.classList.add('inactive')
-        step2.classList.remove('step-active')
-        step3.classList.add('step-active')
-        step2m.classList.remove('step-active')
-        step3m.classList.add('step-active')
+
+
+        re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+        if (!re.exec(emailValue)) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce un correo válido</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        } else {
+            actualizarDatos(emailValue, idApi);
+            formUploadImg.classList.remove('inactive');
+            wapperformUpdate.classList.add('inactive')
+            step2.classList.remove('step-active')
+            step3.classList.add('step-active')
+            step2m.classList.remove('step-active')
+            step3m.classList.add('step-active')
+
+        }
+
+
+
+
+
     });
 
 
@@ -233,48 +265,94 @@ function datosParaFactura(idApi) {
         const codigoPostal = document.getElementById("codigoPostal").value;
         const inputFoto = document.getElementById("user-photo").src;
 
-        //if (razonSocialValue.length == 0) {
-        //    Swal.fire({
-        //        icon: 'error',
-        //        title: 'Oops...',
-        //
-        //        html: '<h4 class="text-alert">Algo salió mal, campo Razon //social vacío</h4>',
-        //        confirmButtonColor: '#308BBE',
-        //    })
-        //    return;
-        //}
-        //if (rfcInput.length == 0) {
-        //    Swal.fire({
-        //        icon: 'error',
-        //        title: 'Oops...',
-        //
-        //        html: '<h4 class="text-alert">Algo salió mal, campo RFC //incorrecto o vacío</h4>',
-        //        confirmButtonColor: '#308BBE',
-        //    })
-        //    return;
-        //}
-        //if (calleInput.length == 0) {
-        //    Swal.fire({
-        //        icon: 'error',
-        //        title: 'Oops...',
-        //
-        //        html: '<h4 class="text-alert">Algo salió mal, campo Calle //incorrecto o vacío</h4>',
-        //        confirmButtonColor: '#308BBE',
-        //    })
-        //    return;
-        //} else {
-        //    enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, //cfdiInput, calleInput, noExterior, noInterior, codigoPostal, //localidadInput, municipioInput, estadoInput, inputFoto);
-        //};
+        if (razonSocialValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce tu razón social</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        }
+        if (tPersona.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Selecciona un tipo de persona</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+
+        }
+        if (rfcInput.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Intoduce tu  RFC con homoclave</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        }
+        if (cfdiInput.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="Selecciona un uso CFDI</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
 
 
-
-        function generarNumeroAleatorio(minimo, maximo) {
-            return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
         }
 
-        let numeroAleatorio = generarNumeroAleatorio(1, 100000);
-        console.log(numeroAleatorio);
-        enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio);
+        if (codigoPostal.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce tu código postal</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        } else {
+
+            function generarNumeroAleatorio(minimo, maximo) {
+                return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+            }
+
+            let numeroAleatorio = generarNumeroAleatorio(1, 100000);
+            console.log(numeroAleatorio);
+            enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio);
+
+        };
+
+
+
+
 
     });
 

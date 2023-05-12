@@ -125,6 +125,10 @@ h3 {
     margin-top: 20px;
 }
 
+.popAlert {
+    border-radius: 30px;
+}
+
 .general-container {
     height: 100%;
     width: 400px;
