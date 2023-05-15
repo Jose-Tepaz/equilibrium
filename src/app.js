@@ -126,6 +126,7 @@ function correoExistente(info, nobre, apellido) {
 
         registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre, apellido);
         datosParaFactura(idApi);
+        enviaDatosSinFact(idApi);
         wapperformUpdate.classList.remove('inactive')
         wrapperLoadEmail.classList.remove('section-load-email')
         wrapperLoadEmail.classList.add('inactive');
@@ -144,14 +145,10 @@ function correoExistente(info, nobre, apellido) {
 const formUploadImg = document.getElementById("wapperformUpdate2");
 
 function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre, apellido) {
-
-
     nameInput.value = nobre;
     apellidoInput.value = apellido;
     emailInput.value = correoApi;
     console.log(nobre, apellido)
-
-
     btnStep3.addEventListener("click", () => {
         const nameValue = document.getElementById("nameInput").value;
         const apellidoValue = document.getElementById("apellidoInput").value;
@@ -180,16 +177,8 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
             step3.classList.add('step-active')
             step2m.classList.remove('step-active')
             step3m.classList.add('step-active')
-
         }
-
-
-
-
-
     });
-
-
 }
 
 /*REGRESA AL PASO 2*/
@@ -200,7 +189,6 @@ previwStep2.addEventListener("click", () => {
     step3.classList.remove('step-active')
     step2m.classList.add('step-active')
     step3m.classList.remove('step-active')
-
 });
 
 /*REGRESA PASO 3*/
@@ -213,9 +201,6 @@ previewStep3.addEventListener("click", () => {
     step4m.classList.remove('step-active');
 });
 
-
-
-
 /*OCULTA SECCION SUBIR COMPROBANTE*/
 const btnsiguienteFact = document.getElementById("btnsiguientefact");
 const invoiceSection = document.getElementById("invoice-section")
@@ -227,12 +212,7 @@ btnsiguienteFact.addEventListener("click", () => {
     step4.classList.add('step-active');
     step3m.classList.remove('step-active');
     step4m.classList.add('step-active');
-
-
-
 })
-
-
 
 /*FUNCION QUE ENVIA LOS DATOS DE CONTACTO DEL MEDICO*/
 async function actualizarDatos(emailValue, idApi) {
@@ -252,9 +232,9 @@ async function actualizarDatos(emailValue, idApi) {
 
 }
 
-
-
 /*ENVIA DATOS DE FACTURACION*/
+const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
+
 function datosParaFactura(idApi) {
     const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
     btnRegistrarseFact.addEventListener("click", () => {
@@ -264,7 +244,6 @@ function datosParaFactura(idApi) {
         const cfdiInput = document.getElementById("cfdiInput").value;
         const codigoPostal = document.getElementById("codigoPostal").value;
         const inputFoto = document.getElementById("user-photo").src;
-
         if (razonSocialValue.length == 0) {
             Swal.fire({
                 icon: 'error',
@@ -274,7 +253,6 @@ function datosParaFactura(idApi) {
                 customClass: {
                     confirmButton: 'btn-siguiente',
                     popup: 'popAlert',
-
                 }
             })
             return;
@@ -288,11 +266,9 @@ function datosParaFactura(idApi) {
                 customClass: {
                     confirmButton: 'btn-siguiente',
                     popup: 'popAlert',
-
                 }
             })
             return;
-
         }
         if (rfcInput.length == 0) {
             Swal.fire({
@@ -303,7 +279,6 @@ function datosParaFactura(idApi) {
                 customClass: {
                     confirmButton: 'btn-siguiente',
                     popup: 'popAlert',
-
                 }
             })
             return;
@@ -317,14 +292,10 @@ function datosParaFactura(idApi) {
                 customClass: {
                     confirmButton: 'btn-siguiente',
                     popup: 'popAlert',
-
                 }
             })
             return;
-
-
         }
-
         if (codigoPostal.length == 0) {
             Swal.fire({
                 icon: 'error',
@@ -334,30 +305,52 @@ function datosParaFactura(idApi) {
                 customClass: {
                     confirmButton: 'btn-siguiente',
                     popup: 'popAlert',
-
                 }
             })
             return;
         } else {
-
             function generarNumeroAleatorio(minimo, maximo) {
                 return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
             }
-
             let numeroAleatorio = generarNumeroAleatorio(1, 100000);
             console.log(numeroAleatorio);
             enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio);
-
         };
-
-
-
-
-
     });
+};
 
+function enviaDatosSinFact(idApi) {
+
+    btnSinFact.addEventListener("click", () => {
+        const inputFoto2 = document.getElementById("user-photo").src;
+
+        function generarNumeroAleatorio2(minimo, maximo) {
+            return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        }
+        let numeroAleatorio2 = generarNumeroAleatorio2(1, 100000);
+
+        registroSinFact(idApi, inputFoto2, numeroAleatorio2);
+
+    })
+};
+async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
+    const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "fields": {
+                "Comprobante": [{ "url": inputFoto2 }],
+                "idNumber": numeroAleatorio2,
+                "Registrado": true,
+            }
+        })
+    });
+    console.log(response);
+    succes();
 }
-
 
 
 
@@ -384,8 +377,6 @@ async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiI
     });
     console.log(response);
     succes();
-
-
 }
 
 /*activa datos de facturacion*/
@@ -406,10 +397,19 @@ function succes() {
 
 btnSi.addEventListener("click", () => {
     dataFactura.classList.remove("inactive");
-
+    btnRegistrarseFact.classList.remove("inactive");
+    btnRegistrarseFact.classList.add("btn-t-2-finalizar");
+    btnSinFact.classList.add("inactive");
+    btnSinFact.classList.remove("btn-t-2-finalizar");
 });
+
+const btnSinFact = document.getElementById("btnRegistrarseSinfac");
 btnNo.addEventListener("click", () => {
     dataFactura.classList.add("inactive");
+    btnSinFact.classList.remove("inactive");
+    btnSinFact.classList.add("btn-t-2-finalizar");
+    btnRegistrarseFact.classList.add("inactive");
+    btnRegistrarseFact.classList.remove("btn-t-2-finalizar");
 
 
 });
