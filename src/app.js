@@ -1,6 +1,8 @@
 //const url = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?filterByFormula=Find(%22preubatres%40gmail.com%22%2C+Correo)';
-const url = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?';
-const token = 'patL2G2VZmSPorKpO.060fe110d16fb2a44764746ed912aafbfb11dd0213b909b3e2ad1e0f61af453c';
+const url = 'https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a?';
+//const urlOld = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?';
+const token = 'patg69zhgmdh3TAEs.ab2c8f573e00196c352b0b8e2ba3e969873ec1d7938f52376f839db3e847a75a';
+//const tokenOld = 'patL2G2VZmSPorKpO.060fe110d16fb2a44764746ed912aafbfb11dd0213b909b3e2ad1e0f61af453c';
 
 const searchFormInput = document.querySelector('#searchForm input');
 const searchFormBtn = document.querySelector('#searchBtn');
@@ -42,10 +44,53 @@ searchFormBtn.addEventListener('click', () => {
         const apellido = inputApellido;
         const nombreCompleto = nombre + " " + apellido;
         console.log(nombreCompleto);
-        obtenerDatosAutenticados(nombreCompleto, nombre, apellido);
+
+        function convertirAMinusculasSinTildes(texto) {
+            const mapaTildes = {
+                'á': 'a',
+                'é': 'e',
+                'í': 'i',
+                'ó': 'o',
+                'ú': 'u',
+                'Á': 'a',
+                'É': 'e',
+                'Í': 'i',
+                'Ó': 'o',
+                'Ú': 'u',
+                'ñ': 'n',
+                'Ñ': 'n'
+            };
+
+            return texto.toLowerCase().replace(/[áéíóúÁÉÍÓÚñÑ]/g, function(match) {
+                return mapaTildes[match];
+            });
+        }
+
+
+        let textoConvertido = convertirAMinusculasSinTildes(nombreCompleto);
+        console.log(textoConvertido); // "hola, ¿como estas? el es mi compania."
+
+        obtenerDatosAutenticados(textoConvertido, nombre, apellido);
+
+
     };
 
+
+
+
+
+
+
+
 });
+
+
+//convierte a minusculas y quita tildes
+
+
+
+
+
 
 const concat = 'filterByFormula=Find(%22preubauno@gmail.com%22%2C+Correo)';
 
@@ -54,7 +99,7 @@ async function obtenerDatosAutenticados(nombreCompleto, nombre, apellido) {
     //const urlConParametros = `${url}?${parametrosCodificados}`;
 
     try {
-        const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
+        const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -155,6 +200,34 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
         const emailValue = document.getElementById("emailInput").value;
 
 
+        if (nameValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce tu nombre</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        }
+        if (apellidoValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce tu apellido</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+
+                }
+            })
+            return;
+        }
         re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
         if (!re.exec(emailValue)) {
             Swal.fire({
@@ -216,7 +289,7 @@ btnsiguienteFact.addEventListener("click", () => {
 
 /*FUNCION QUE ENVIA LOS DATOS DE CONTACTO DEL MEDICO*/
 async function actualizarDatos(emailValue, idApi) {
-    const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -334,7 +407,7 @@ function enviaDatosSinFact(idApi) {
     })
 };
 async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
-    const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -356,7 +429,7 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
 
 
 async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
-    const response = await fetch(`https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

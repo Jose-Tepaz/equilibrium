@@ -7,6 +7,7 @@
 :root {
     --black-1: #161C1F;
     --blue-1: #3792E6;
+    --blue-hover-1: #1871C3;
     --blue-2: #4EABE5;
     --verde-1: #3eb9c9;
     --verde-2: #8AD4D0;
@@ -123,6 +124,11 @@ h3 {
     line-height: 28px;
     cursor: pointer;
     margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-siguiente:hover {
+    background-color: var(--blue-hover-1);
 }
 
 .popAlert {
@@ -313,6 +319,10 @@ h3 {
     font-size: 18px;
     line-height: 28px;
     cursor: pointer;
+}
+
+.form-search-name button:hover {
+    background: var(--blue-hover-1);
 }
 
 
@@ -557,7 +567,7 @@ h3 {
 }
 
 #btn-foto:hover {
-    background: var(--blue-1);
+    background: var(--blue-hover-1);
 }
 
 
@@ -611,10 +621,16 @@ h3 {
     letter-spacing: 0.02em;
     color: #4F4F4F;
     cursor: pointer;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #00000005;
+    transition: 0.3s;
 }
 
 .btn-select-invoice span:hover {
     background: #fff;
+    border-width: 2px;
+    border-color: #4EABE5;
 }
 
 input[type="radio"] {
@@ -667,6 +683,11 @@ select {
     letter-spacing: 0.02em;
     color: #FBFBFD;
     border-style: none;
+    transition: 0.3s;
+}
+
+.btn-t-2-finalizar:hover {
+    background: var(--blue-hover-1);
 }
 
 
@@ -772,6 +793,10 @@ select {
     font-size: 18px;
     line-height: 28px;
     text-decoration: none;
+}
+
+.component-ok a:hover {
+    background: #4EABE50D;
 }
 
 .component-ok h3 {
