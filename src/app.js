@@ -1,7 +1,7 @@
 //const url = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?filterByFormula=Find(%22preubatres%40gmail.com%22%2C+Correo)';
-const url = 'https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a?';
+const url = 'https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV?';
 //const urlOld = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?';
-const token = 'patg69zhgmdh3TAEs.ab2c8f573e00196c352b0b8e2ba3e969873ec1d7938f52376f839db3e847a75a';
+const token = 'patWFvApXCX6Y5uAV.a442ef163f9b5a66b49523b1a51bbbcb8ba017da62ae1a4fc8571cd157568753';
 //const tokenOld = 'patL2G2VZmSPorKpO.060fe110d16fb2a44764746ed912aafbfb11dd0213b909b3e2ad1e0f61af453c';
 
 const searchFormInput = document.querySelector('#searchForm input');
@@ -99,7 +99,7 @@ async function obtenerDatosAutenticados(nombreCompleto, nombre, apellido) {
     //const urlConParametros = `${url}?${parametrosCodificados}`;
 
     try {
-        const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
+        const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -289,7 +289,7 @@ btnsiguienteFact.addEventListener("click", () => {
 
 /*FUNCION QUE ENVIA LOS DATOS DE CONTACTO DEL MEDICO*/
 async function actualizarDatos(emailValue, idApi) {
-    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -407,7 +407,7 @@ function enviaDatosSinFact(idApi) {
     })
 };
 async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
-    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -429,7 +429,7 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
 
 
 async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
-    const response = await fetch(`https://api.airtable.com/v0/appeFAfvTztaVns2r/tblv3rIltOvDQhK4a/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
