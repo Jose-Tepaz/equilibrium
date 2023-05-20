@@ -439,7 +439,7 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
         body: JSON.stringify({
             "fields": {
                 "Comprobante": [{ "url": inputFoto2 }],
-                "idNumber": numeroAleatorio2,
+                "idNumber": numeroAleatorio2.toString().padStart(3, "0"),
                 "Registrado": true,
             }
         })
@@ -463,7 +463,7 @@ async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiI
                 "RFC-con-homoclave": rfcInput,
                 "Categoria-CFDI": cfdiInput,
                 "Codigo-postal": codigoPostal,
-                "idNumber": numeroAleatorio,
+                "idNumber": numeroAleatorio.toString().padStart(3, "0"),
                 "Registrado": true,
             }
         })
