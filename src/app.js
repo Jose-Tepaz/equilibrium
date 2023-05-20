@@ -306,7 +306,7 @@ async function actualizarDatos(emailValue, idApi) {
 }
 
 /* FUNCION PARA OBTENER EL ACTUAL VALOR INCREMENTAL */
-const getAutoIncrement = async () => {
+const getAutoIncrement = async() => {
     const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
         method: 'GET',
         headers: {
@@ -314,12 +314,12 @@ const getAutoIncrement = async () => {
         }
     })
     const row = await response.json()
-    if (row) return row?.fields?.RegisterAutoincrement
+    if (row) return row.fields.RegisterAutoincrement
     return 0
 }
 
 /* FUNCION PARA ACTUALIZAR EL VALOR INCREMENTAL */
-const updateAutoIncrement = async (lastValue) => {
+const updateAutoIncrement = async(lastValue) => {
     const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
         method: 'PATCH',
         headers: {
@@ -341,7 +341,7 @@ const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
 
 function datosParaFactura(idApi) {
     const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
-    btnRegistrarseFact.addEventListener("click", async () => {
+    btnRegistrarseFact.addEventListener("click", async() => {
         const razonSocialValue = document.getElementById("razonSocialInput").value;
         const tPersona = document.getElementById('tPersona').value;
         const rfcInput = document.getElementById("rfcInput").value;
@@ -422,7 +422,7 @@ function datosParaFactura(idApi) {
 
 function enviaDatosSinFact(idApi) {
 
-    btnSinFact.addEventListener("click", async () => {
+    btnSinFact.addEventListener("click", async() => {
         const inputFoto2 = document.getElementById("user-photo").src;
         const lastValue = await getAutoIncrement()
         await registroSinFact(idApi, inputFoto2, lastValue)
