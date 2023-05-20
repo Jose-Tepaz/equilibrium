@@ -314,9 +314,7 @@ const getAutoIncrement = async () => {
         }
     })
     const row = await response.json()
-    if (row) {
-        return row?.fields?.RegisterAutoincrement
-    }
+    if (row) return row?.fields?.RegisterAutoincrement
     return 0
 }
 
