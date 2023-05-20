@@ -3,6 +3,7 @@ const url = 'https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV?';
 //const urlOld = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?';
 const token = 'patWFvApXCX6Y5uAV.a442ef163f9b5a66b49523b1a51bbbcb8ba017da62ae1a4fc8571cd157568753';
 //const tokenOld = 'patL2G2VZmSPorKpO.060fe110d16fb2a44764746ed912aafbfb11dd0213b909b3e2ad1e0f61af453c';
+const configId = 'recuihJiAK2qfco4c';
 
 const searchFormInput = document.querySelector('#searchForm input');
 const searchFormBtn = document.querySelector('#searchBtn');
@@ -302,7 +303,39 @@ async function actualizarDatos(emailValue, idApi) {
         })
     });
     console.log(response);
+}
 
+/* FUNCION PARA OBTENER EL ACTUAL VALOR INCREMENTAL */
+const getAutoIncrement = async () => {
+    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    const row = await response.json()
+    if (row) {
+        return row?.fields?.RegisterAutoincrement
+    }
+    return 0
+}
+
+/* FUNCION PARA ACTUALIZAR EL VALOR INCREMENTAL */
+const updateAutoIncrement = async (lastValue) => {
+    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "fields": {
+                "RegisterAutoincrement": lastValue + 1,
+            }
+        })
+    })
+    const row = await response.json()
+    return row
 }
 
 /*ENVIA DATOS DE FACTURACION*/
@@ -310,7 +343,7 @@ const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
 
 function datosParaFactura(idApi) {
     const btnRegistrarseFact = document.getElementById("btnRegistrarse2");
-    btnRegistrarseFact.addEventListener("click", () => {
+    btnRegistrarseFact.addEventListener("click", async () => {
         const razonSocialValue = document.getElementById("razonSocialInput").value;
         const tPersona = document.getElementById('tPersona').value;
         const rfcInput = document.getElementById("rfcInput").value;
@@ -382,28 +415,20 @@ function datosParaFactura(idApi) {
             })
             return;
         } else {
-            function generarNumeroAleatorio(minimo, maximo) {
-                return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
-            }
-            let numeroAleatorio = generarNumeroAleatorio(1, 100000);
-            console.log(numeroAleatorio);
-            enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio);
+            const lastValue = await getAutoIncrement()
+            await enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, lastValue)
+            await updateAutoIncrement(lastValue)
         };
     });
 };
 
 function enviaDatosSinFact(idApi) {
 
-    btnSinFact.addEventListener("click", () => {
+    btnSinFact.addEventListener("click", async () => {
         const inputFoto2 = document.getElementById("user-photo").src;
-
-        function generarNumeroAleatorio2(minimo, maximo) {
-            return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
-        }
-        let numeroAleatorio2 = generarNumeroAleatorio2(1, 100000);
-
-        registroSinFact(idApi, inputFoto2, numeroAleatorio2);
-
+        const lastValue = await getAutoIncrement()
+        await registroSinFact(idApi, inputFoto2, lastValue)
+        await updateAutoIncrement(lastValue)
     })
 };
 async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
@@ -424,9 +449,6 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
     console.log(response);
     succes();
 }
-
-
-
 
 async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
     const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
