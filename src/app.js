@@ -375,10 +375,10 @@ function datosParaFactura(idApi) {
             })
             return;
         }
-        if (rfcInput.length == 0) {
+        if (tPersona.length == 0) {
             Swal.fire({
                 icon: 'error',
-                html: '<h4 class="title-2">Intoduce tu  RFC con homoclave</h4>',
+                html: '<h4 class="title-2">Selecciona un tipo de persona</h4>',
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
@@ -388,10 +388,39 @@ function datosParaFactura(idApi) {
             })
             return;
         }
+        if (rFiscal.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Selecciona un régimen fiscal</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+
+        if (rfcInput.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce tu RFC con homoclave</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+
+
         if (cfdiInput.length == 0) {
             Swal.fire({
                 icon: 'error',
-                html: '<h4 class="Selecciona un uso CFDI</h4>',
+                html: '<h4 class="title-2">Selecciona un uso CFDI</h4>',
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {

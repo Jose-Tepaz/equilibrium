@@ -250,12 +250,13 @@
                         <div class="style-form-fact">
                             <div class="object-form">
                                 <label for="razonSocial" class="titulo-datos-registro">Razon social*</label>
-                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" placeholder=" " required=" ">
+                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" placeholder="Nombre" required=" ">
                             </div>
                             <div class="object-form">
                                 <label>Tipo de persona*</label>
                                 <div class="wrapper-select" style="display:flex; gap: 16px;">
                                     <select name="tipoPersona" id="tPersona" class="inputForm">
+                                        <option value="" disabled selected>Selecciona un tipo de personan</option>
                                             <option value="Fisíca">Fisíca</option>
                                             <option value="Moral">Moral</option>
                                         </select>
@@ -267,7 +268,7 @@
                                 <label>Régimen Fiscal*</label>
                                 <div class="wrapper-select" style="display:flex; gap: 16px;">
                                     <select name="regimenFiscal" id="regimenFiscal" class="inputForm">
-                                            <option value="">Selecciona un uso CFDI</option>
+                                        <option value="" disabled selected>Selecciona un régimen</option>
                                             <option value="(601) General de Ley Personas Morales">(601) General de Ley Personas Morales</option>
                                             <option value="(612) Personas Físicas con Actividades Empresariales y Profesionales">(612) Personas Físicas con Actividades Empresariales y Profesionales</option>
                                             <option value="(621) Incorporación Final">(621) Incorporación Final </option>
@@ -286,6 +287,8 @@
                                         (uso del CFDI)*</label>
                                 <div class="wrapper-select">
                                     <select name="cfdi " id="cfdiInput" form=" " class="inputForm">
+                                        
+                                        <option value="" disabled selected>Selecciona un uso CFDI</option>
                                             <option value="Adquisición de mercancias">Adquisición de
                                                 mercancias</option>
                                             <option value="Gastos en general">Gastos
