@@ -41,8 +41,8 @@ searchFormBtn.addEventListener('click', () => {
         })
 
     } else {
-        const nombre = inputName;
-        const apellido = inputApellido;
+        const nombre = inputName.trim();
+        const apellido = inputApellido.trim();
         const nombreCompleto = nombre + " " + apellido;
         console.log(nombreCompleto);
 
@@ -344,6 +344,7 @@ function datosParaFactura(idApi) {
     btnRegistrarseFact.addEventListener("click", async() => {
         const razonSocialValue = document.getElementById("razonSocialInput").value;
         const tPersona = document.getElementById('tPersona').value;
+        const rFiscal = document.getElementById('regimenFiscal').value;
         const rfcInput = document.getElementById("rfcInput").value;
         const cfdiInput = document.getElementById("cfdiInput").value;
         const codigoPostal = document.getElementById("codigoPostal").value;
@@ -414,7 +415,7 @@ function datosParaFactura(idApi) {
             return;
         } else {
             const lastValue = await getAutoIncrement()
-            await enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, lastValue)
+            await enviaDatosFact(idApi, razonSocialValue, tPersona, rFiscal, rfcInput, cfdiInput, codigoPostal, inputFoto, lastValue)
             await updateAutoIncrement(lastValue)
         };
     });
@@ -448,7 +449,7 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
     succes();
 }
 
-async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
+async function enviaDatosFact(idApi, razonSocialValue, tPersona, rFiscal, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
     const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
@@ -460,6 +461,7 @@ async function enviaDatosFact(idApi, razonSocialValue, tPersona, rfcInput, cfdiI
                 "Comprobante": [{ "url": inputFoto }],
                 "Razon": razonSocialValue,
                 "Tipo-de-persona": tPersona,
+                "Regimen-fiscal": rFiscal,
                 "RFC-con-homoclave": rfcInput,
                 "Categoria-CFDI": cfdiInput,
                 "Codigo-postal": codigoPostal,
