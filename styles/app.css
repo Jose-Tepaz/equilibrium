@@ -261,6 +261,7 @@ h3 {
 }
 
 .content-function {
+    position: none;
     width: 55%;
     display: flex;
     flex-direction: column;

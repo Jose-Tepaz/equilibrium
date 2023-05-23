@@ -24,6 +24,7 @@
     /*NAV*/
     .navBar {
         padding-left: 1.5rem;
+        z-index: 20;
     }
     /*botones*/
     .form-search-name button {
@@ -38,12 +39,14 @@
         min-width: 100%;
     }
     .content-function {
+        position: relative;
         width: auto;
         height: 100%;
         background: #fff;
         padding: 48px 24px;
         border-radius: 24px;
         margin-top: 48px;
+        z-index: 3;
     }
     .general-container {
         width: auto;
