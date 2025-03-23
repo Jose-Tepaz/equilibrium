@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilibrium</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./styles/app.css">
+    <link rel="stylesheet" href="./styles/appmobile.css">
+
+</head>
+
+<body>
+
+    <!--SEARCH INPUT-->
+    <!--cambios-->
+    <a class="navBar" href="https://equilibrium.borgatta.com.mx/"> <img src="./asets/logo-nuevo.svg" alt=""> </a>
+    <section class="werapper-all">
+        <div class="column-nav">
+            <!--STEOS DESKTOP-->
+            <div class="steps mobile-none">
+                <div class="linetimline"></div>
+                <div class="warpper-step step-active" id="step-1">
+                    <div class="number-step">1</div>
+                    <div class="text-step">¿Eres Dr. B360? </div>
+                </div>
+                <div class="warpper-step" id="step-2">
+                    <div class="number-step">2</div>
+                    <div class="text-step">Datos personales</div>
+                </div>
+                <div class="warpper-step" id="step-3">
+                    <div class="number-step">3</div>
+                    <div class="text-step">Sube tu comprobante de pago</div>
+                </div>
+                <div class="warpper-step" id="step-4">
+                    <div class="number-step">4</div>
+                    <div class="text-step">Datos de facturación</div>
+                </div>
+
+            </div>
+
+            <!--STEOS MOBILE-->
+            <div class="steps desktopNone">
+                <div class="linetimline"></div>
+                <div class="warpper-step step-active" id="step-1m">
+                    <div class="number-step">1</div>
+                    <div class="text-step">¿Eres Dr. B360? </div>
+                </div>
+                <div class="warpper-step" id="step-2m">
+                    <div class="number-step">2</div>
+                    <div class="text-step">Datos</div>
+                </div>
+                <div class="warpper-step" id="step-3m">
+                    <div class="number-step">3</div>
+                    <div class="text-step">Comprobante</div>
+                </div>
+                <div class="warpper-step" id="step-4m">
+                    <div class="number-step">4</div>
+                    <div class="text-step">Facturación</div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="content-function">
+            <div class="section-load-email" id="wrapper-load-email">
+                <div class="general-container">
+                    <div class="wrapper-arrow-prev" id="prev-step-1">
+                        <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                        Atrás
+                    </div>
+
+                    <div class="component-load-dpi">
+                        <div id="wrapp-foorm-search" class="wrapp-foorm-search">
+                            <h2 class="title-1 title-center"> ¿Eres Dr. B360? </h2>
+                            <p class="paragraph-1 title-center">Asegúrate de usar el/los nombre(s) y apellidos con los que te registraste en Borgatta</p>
+                            <form id="searchForm" class="form-search-name" action="">
+                                <input id="inputName" type="search" placeholder="Nombre" class="serch-input">
+                                <input id="inputApellido" type="search" placeholder="Apellidos " class="serch-input">
+                                <button id="searchBtn" type="button" class="search-btn ">Enviar</button>
+                            </form>
+                        </div>
+
+                        <!--ALERTA NO EXISTE-->
+
+                        <div id="correoNoExiste" class="inactive">
+                            <div class="alert-noexiste ">
+                                <div id="dpiNoExis" class="wrapper-content-alert">
+                                    <img src="./asets/flase.svg " alt=" ">
+                                    <h2 class="title-2 title-center ">Lo sentimos, aún no estás registrado como Dr. B360. Recuerda usar el/los nombre(s) y apellidos que tienes con Borgatta
+                                    </h2>
+                                    <p class="paragraph-1 title-center">Puedes ponerte en contacto con Borgatta si consideras que esto es un error o para capacitarte como Dr. B360 al correo <a href="mailto:e_continua@borgatta.com.mx">e_continua@borgatta.com.mx</a></p>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <!--ALERTA CORREOEXISTE-->
+                        <div id="correoExiste" class="inactive">
+                            <div class="existe">
+                                <div class="wrapper-content-alert">
+                                    <img src="./asets/check-gren.svg" alt=" ">
+                                    <h2 class="title-2 title-center ">Eres Dr. B360, bienvenido, regístrate para la convención.</h2>
+                                </div>
+                                <div class="container-contactar-borgatta">
+                                    <button id="btnProcederRegistro" class="btn-siguiente ">Siguiente</button>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <!--ALERTA YA REGISTRADOE-->
+                        <div id="medicoRegistrado" class=" inactive ">
+                            <div class="wrapper-content-alert ">
+                                <img src="./asets/ckeck.svg " alt=" ">
+                                <h2 class="title-2 ">Ya estás registrado</h2>
+                                <p class="paragraph-1 title-center ">Ya estás registrado para la convención, tu ingreso será con los datos que te enviamos por correo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--FORMULARIO PARA ACTUALUZAR DATOS DE CONTACTO-->
+            <div class=".section-form-update inactive" id="wapperformUpdate">
+                <div class="general-container">
+                    <div class="wrapper-arrow-prev" id="prev-step-1">
+                        <a href=" "><img src="./asets/Vector-arrow-prev.svg" alt=" "></a>
+                        Atrás
+                    </div>
+                    <form class="component-form-update" action=" " id="formUpdate" name="Formulairo-para-actulizar">
+                        <h2 class="title-1 ">Datos personales</h2>
+                        <p class="paragraph-1 ">Confirma tus datos personales y tu email</p>
+                        <div class="content-grid-form ">
+                            <div class="object-form ">
+                                <label for="nombre " class="titulo-datos-registro ">Nombre</label>
+                                <input id="nameInput" type="text " class="inputForm " maxlength="20 " name="nombre " data-name="nombre " placeholder=" " required=" ">
+                            </div>
+                            <div class="object-form">
+                                <label for="nombre" class="titulo-datos-registro">Apellido</label>
+                                <input id="apellidoInput" type="text " class="inputForm" maxlength="20 " name="nombre" data-name="nombre" placeholder=" " required=" ">
+                            </div>
+                            <div class="object-form ">
+                                <label for="email " class="titulo-datos-registro ">Correo*</label>
+                                <input id="emailInput" type="email " class="inputForm" name="pais " data-name="pais " placeholder=" " required=" ">
+                            </div>
+                            <div id="preview">
+
+                            </div>
+
+                        </div>
+
+                        <div class="wrapper-2-btns">
+                            <button id="btnStep3" class="btn-siguiente" type="button">Siguiente</button>
+
+                        </div>
+                    </form>
+
+                </div>
+
+
+
+
+            </div>
+
+            <!--SUBIR COMPROBANTE-->
+            <div class=".section-form-update inactive" id="wapperformUpdate2">
+                <div class="container440 ">
+                    <div class="wrapper-arrow-prev" id="prev-step-1">
+                        <a id="btn-previw-step-2"><img src="./asets/Vector-arrow-prev.svg" alt=" "></a>
+                        Atrás
+                    </div>
+                    <form class="component-form-update " action=" " id="formNew" name="Formulairo-para-actulizar ">
+                        <div class="content-grid-form ">
+                            <div class="object-form ">
+                                <h3 class="title-1 title-center">Sube tu comprobante de pago</h3>
+                                <p class="paragraph-2">Puede ser en formato PDF, PNG, JPG. </p>
+                                <div id="card-data-banc" class="wrapper-card-btn-upl">
+                                    <button type="button" id="btn-foto" class="btn-siguiente">Subir
+                                            Comprobante</button>
+                                    <div class="card-info-pago">
+                                        <div>
+                                            <h2 class="title-price">CUOTA DE INSCRIPCIÓN</h2>
+                                            <h2 class="price ">$3,500.00 <span>MXN</span></h2>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div>
+                                            <h3 class="datos-paog">Datos para pagar:</h3>
+                                            <p class="nombre-cuenta">ORTHODONTIC CO UNIVERSIDAD SA DE CV BANCOMER BBVA</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="title-dat-pago">NUM DE CUENTA CLABE:</h3>
+                                            <p class="texto-info-2">012180001934-69-86-73</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="title-dat-pago">NUM DE CUENTA:</h3>
+                                            <p class="texto-info-2 ">01934-69867</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="title-dat-pago">NUM DE CLIENTE:</h3>
+                                            <p class="texto-info-2">A9377252</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <img id="user-photo" class="comprobanteImg">
+
+                                <div class="wrapp-btn-sig-upload inactive" id="btn-sig-upload">
+                                    <button id="btnsiguientefact" class="btn-siguiente " type="button">Siguiente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--FORMULARIO DATOS DE FACTURACION-->
+            <div class="section-form-invoice inactive" id="invoice-section">
+                <div class="wrapper-arrow-prev" id="prev-step-1">
+                    <a id="preview-step3"><img src="./asets/Vector-arrow-prev.svg" alt=" "></a>
+                    Atrás
+                </div>
+                <form action=" " class="form-invoice ">
+                    <div>
+                        <h3 class="title-1 ">Datos de facturación</h3>
+                        <p class="paragraph-1 ">¿Necesitas factura?</p>
+                        <div class="wrapper-btn-factura-si-no">
+                            <div class="wrapper-btn-si-no">
+                                <label id="btnNo" for="no" class="btn-select-invoice">
+                                        <input type="radio" name="factura"
+                                            id="no" checked>
+                                        <span>No es necesario</span>
+                                    </label>
+                                <label id="btnSi" for="si" class="btn-select-invoice">
+                                        <input type="radio" name="factura"
+                                            id="si">
+                                        <span>Si necesito</span>
+                                    </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="wrapper-data-factura" class="inactive">
+                        <div class="style-form-fact">
+                            <div class="object-form">
+                                <label for="razonSocial" class="titulo-datos-registro">Razon social*</label>
+                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" placeholder="Nombre" required=" ">
+                            </div>
+                            <div class="object-form">
+                                <label>Tipo de persona*</label>
+                                <div class="wrapper-select" style="display:flex; gap: 16px;">
+                                    <select name="tipoPersona" id="tPersona" class="inputForm">
+                                        <option value="" disabled selected>Selecciona un tipo de personan</option>
+                                            <option value="Fisíca">Fisíca</option>
+                                            <option value="Moral">Moral</option>
+                                        </select>
+                                    <i><img src="./asets/vector arrow.svg"
+                                                alt=" "></i>
+                                </div>
+                            </div>
+                            <div class="object-form">
+                                <label>Régimen Fiscal*</label>
+                                <div class="wrapper-select" style="display:flex; gap: 16px;">
+                                    <select name="regimenFiscal" id="regimenFiscal" class="inputForm">
+                                        <option value="" disabled selected>Selecciona un régimen</option>
+                                            <option value="(601) General de Ley Personas Morales">(601) General de Ley Personas Morales</option>
+                                            <option value="(612) Personas Físicas con Actividades Empresariales y Profesionales">(612) Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                            <option value="(621) Incorporación Final">(621) Incorporación Final </option>
+                                            <option value="(626) Régimen Simplificado de Confianza">(626) Régimen Simplificado de Confianza</option>
+                                        </select>
+                                    <i><img src="./asets/vector arrow.svg"
+                                                alt=" "></i>
+                                </div>
+                            </div>
+                            <div class="object-form">
+                                <label for="rfc" class="titulo-datos-registro">RFC*</label>
+                                <input id="rfcInput" type="text " class="inputForm" name="rfc " placeholder="RFC con homoclave" required=" ">
+                            </div>
+                            <div class="object-form">
+                                <label for="cfdi" class="titulo-datos-registro ">Categoría
+                                        (uso del CFDI)*</label>
+                                <div class="wrapper-select">
+                                    <select name="cfdi " id="cfdiInput" form=" " class="inputForm">
+                                        
+                                        <option value="" disabled selected>Selecciona un uso CFDI</option>
+                                            <option value="Adquisición de mercancias">Adquisición de
+                                                mercancias</option>
+                                            <option value="Gastos en general">Gastos
+                                                en general</option>
+                                            <option value="Por definir">Por
+                                                definir</option>
+                                        </select>
+                                    <i><img src="./asets/vector arrow.svg"
+                                                alt=" "></i>
+                                </div>
+                            </div>
+                            <div class="object-form">
+                                <label for="rfc" class="titulo-datos-registro">Código
+                                        postal</label>
+                                <input id="codigoPostal" type="number" class="inputForm" name="calle" placeholder="Código postal" required=" ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btns-finalizar">
+                        <button id="btnRegistrarse2" class="inactive" type="button">Siguiente</button>
+                        <button id="btnRegistrarseSinfac" class="btn-t-2-finalizar" type="button">Siguiente</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="line-footer">
+        <div class="imgFooter"> <img src="./asets/b360footer.svg" alt=" "> </div>
+        <div class="text-footer">Una conferencia de B360.mx</div>
+    </div>
+    <div id="wrapper-ok" class="inactive">
+        <div class="wrapp-succes-content">
+            <div class="component-ok">
+                <h2>¡Gracias por registrarte en nuestra conferencia de capacitación para doctores !</h2>
+                <h3> Esperamos verte pronto y que la experiencia sea enriquecedora y útil para mejorar tu práctica médica. ¡Gracias por ser parte de nuestra comunidad de profesionales comprometidos con la excelencia en la atención médica!</h3>
+                <a href=" ">Ir a inicio</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript "></script>
+    <script src="./src/nodes.js "></script>
+    <script src="./src/app.js "></script>
+
+
+    <script src="./src/img.js "></script>
+
+</body>
+
+</html>
