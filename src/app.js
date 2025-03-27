@@ -1,8 +1,8 @@
-//const url = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?filterByFormula=Find(%22preubatres%40gmail.com%22%2C+Correo)';
-const url = 'https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV?';
-//const urlOld = 'https://api.airtable.com/v0/apprdv76hfgT4g0Q0/tblEqxpfjVXcsQH6d?';
-const token = 'patWFvApXCX6Y5uAV.a442ef163f9b5a66b49523b1a51bbbcb8ba017da62ae1a4fc8571cd157568753';
-//const tokenOld = 'patL2G2VZmSPorKpO.060fe110d16fb2a44764746ed912aafbfb11dd0213b909b3e2ad1e0f61af453c';
+const url = 'https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV';
+
+
+const token = 'pat1BopI8nQaGzvCI.4da5c9170bd39ad23a44af11f9fbcdc70d5aa8ea1cb7a59a01abca0a2d0e57d2';
+
 const configId = 'recuihJiAK2qfco4c';
 
 const searchFormInput = document.querySelector('#searchForm input');
@@ -21,7 +21,6 @@ searchFormBtn.addEventListener('click', () => {
             customClass: {
                 confirmButton: 'btn-siguiente',
                 popup: 'popAlert',
-
             }
         })
         return;
@@ -36,60 +35,54 @@ searchFormBtn.addEventListener('click', () => {
             customClass: {
                 confirmButton: 'btn-siguiente',
                 popup: 'popAlert',
-
             }
         })
+        return;
+    }
 
-    } else {
-        const nombre = inputName.trim();
-        const apellido = inputApellido.trim();
-        const nombreCompleto = nombre + " " + apellido;
-        console.log(nombreCompleto);
+    // Show loading state
+    searchFormBtn.innerHTML = '<span class="loader">Validando datos...</span>';
+    searchFormBtn.disabled = true;
 
-        function convertirAMinusculasSinTildes(texto) {
-            const mapaTildes = {
-                'á': 'a',
-                'é': 'e',
-                'í': 'i',
-                'ó': 'o',
-                'ú': 'u',
-                'Á': 'a',
-                'É': 'e',
-                'Í': 'i',
-                'Ó': 'o',
-                'Ú': 'u',
-                'ñ': 'n',
-                'Ñ': 'n'
-            };
+    const nombre = inputName.trim();
+    const apellido = inputApellido.trim();
+    const nombreCompleto = nombre + " " + apellido;
+    console.log(nombreCompleto);
 
-            return texto.toLowerCase().replace(/[áéíóúÁÉÍÓÚñÑ]/g, function(match) {
-                return mapaTildes[match];
-            });
-        }
+    function convertirAMinusculasSinTildes(texto) {
+        const mapaTildes = {
+            'á': 'a',
+            'é': 'e',
+            'í': 'i',
+            'ó': 'o',
+            'ú': 'u',
+            'Á': 'a',
+            'É': 'e',
+            'Í': 'i',
+            'Ó': 'o',
+            'Ú': 'u',
+            'ñ': 'n',
+            'Ñ': 'n'
+        };
 
+        return texto.toLowerCase().replace(/[áéíóúÁÉÍÓÚñÑ]/g, function(match) {
+            return mapaTildes[match];
+        });
+    }
 
-        let textoConvertido = convertirAMinusculasSinTildes(nombreCompleto);
-        console.log(textoConvertido); // "hola, ¿como estas? el es mi compania."
+    let textoConvertido = convertirAMinusculasSinTildes(nombreCompleto);
+    console.log(textoConvertido);
 
-        obtenerDatosAutenticados(textoConvertido, nombre, apellido);
-
-
-    };
-
-
-
-
-
-
-
-
+    obtenerDatosAutenticados(textoConvertido, nombre, apellido)
+        .finally(() => {
+            // Reset button state after request completes
+            searchFormBtn.innerHTML = 'Enviar';
+            searchFormBtn.disabled = false;
+        });
 });
 
 
 //convierte a minusculas y quita tildes
-
-
-
 
 
 
@@ -100,7 +93,7 @@ async function obtenerDatosAutenticados(nombreCompleto, nombre, apellido) {
     //const urlConParametros = `${url}?${parametrosCodificados}`;
 
     try {
-        const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
+        const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV?filterByFormula=Find(%22${nombreCompleto}%22%2C+Name)`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

@@ -27,7 +27,7 @@
                 <div class="linetimline"></div>
                 <div class="warpper-step step-active" id="step-1">
                     <div class="number-step">1</div>
-                    <div class="text-step">¿Eres Dr. B360? </div>
+                    <div class="text-step">¿Estas registrado?</div>
                 </div>
                 <div class="warpper-step" id="step-2">
                     <div class="number-step">2</div>
@@ -78,24 +78,29 @@
 
                     <div class="component-load-dpi">
                         <div id="wrapp-foorm-search" class="wrapp-foorm-search">
-                            <h2 class="title-1 title-center"> ¿Eres Dr. B360? </h2>
-                            <p class="paragraph-1 title-center">Asegúrate de usar el/los nombre(s) y apellidos con los que te registraste en Borgatta</p>
+                            <h2 class="title-1 title-center"> ¿Eres parte de Borgatta? </h2>
+                            <p class="paragraph-1 title-center">Asegúrate de usar el/los nombre(s) y apellidos con los que te regístraste en Borgatta</p>
                             <form id="searchForm" class="form-search-name" action="">
-                                <input id="inputName" type="search" placeholder="Nombre" class="serch-input">
-                                <input id="inputApellido" type="search" placeholder="Apellidos " class="serch-input">
-                                <button id="searchBtn" type="button" class="search-btn ">Enviar</button>
+                                <div class="wrapper-input">
+                                    <label for="inputName" class="label-input">Nombre</label>
+                                    <input id="inputName" type="search" placeholder="Nombre" class="serch-input">
+                                </div>
+                                <div class="wrapper-input">
+                                    <label for="inputApellido" class="label-input">Apellidos</label>
+                                    <input id="inputApellido" type="search" placeholder="Apellidos " class="serch-input">
+                                </div>
+                                <button id="searchBtn" type="button" class="button search-btn">Enviar</button>
                             </form>
                         </div>
 
                         <!--ALERTA NO EXISTE-->
 
                         <div id="correoNoExiste" class="inactive">
-                            <div class="alert-noexiste ">
+                            <div class="alert-noexiste">
                                 <div id="dpiNoExis" class="wrapper-content-alert">
                                     <img src="./asets/flase.svg " alt=" ">
-                                    <h2 class="title-2 title-center ">Lo sentimos, aún no estás registrado como Dr. B360. Recuerda usar el/los nombre(s) y apellidos que tienes con Borgatta
-                                    </h2>
-                                    <p class="paragraph-1 title-center">Puedes ponerte en contacto con Borgatta si consideras que esto es un error o para capacitarte como Dr. B360 al correo <a href="mailto:e_continua@borgatta.com.mx">e_continua@borgatta.com.mx</a></p>
+                                    <h2 class="title-2 title-center ">Lo sentimos, aún no estás registrado en Borgatta. Recuerda usar el/los nombre(s) y apellidos que tienes con nosotros</h2>
+                                    <p class="paragraph-1 title-center">Puedes ponerte en contacto con Borgatta si consideras que esto es un error contáctanos a <a class="paragraph-1 text-color-yellow" href="mailto:e_continua@borgatta.com.mx">e_continua@borgatta.com.mx</a></p>
                                 </div>
 
 
@@ -105,10 +110,10 @@
                         </div>
                         <!--ALERTA CORREOEXISTE-->
                         <div id="correoExiste" class="inactive">
-                            <div class="existe">
+                            <div>
                                 <div class="wrapper-content-alert">
                                     <img src="./asets/check-gren.svg" alt=" ">
-                                    <h2 class="title-2 title-center ">Eres Dr. B360, bienvenido, regístrate para la convención.</h2>
+                                    <h2 class="title-2 title-center ">Eres parte de Borgatta, bienvenido, regístrate para la convención</h2>
                                 </div>
                                 <div class="container-contactar-borgatta">
                                     <button id="btnProcederRegistro" class="btn-siguiente ">Siguiente</button>
@@ -142,17 +147,119 @@
                         <p class="paragraph-1 ">Confirma tus datos personales y tu email</p>
                         <div class="content-grid-form ">
                             <div class="object-form ">
-                                <label for="nombre " class="titulo-datos-registro ">Nombre</label>
+                                <label for="nombre " class="label-input">Nombre</label>
                                 <input id="nameInput" type="text " class="inputForm " maxlength="20 " name="nombre " data-name="nombre " placeholder=" " required=" ">
                             </div>
                             <div class="object-form">
-                                <label for="nombre" class="titulo-datos-registro">Apellido</label>
-                                <input id="apellidoInput" type="text " class="inputForm" maxlength="20 " name="nombre" data-name="nombre" placeholder=" " required=" ">
+                                <label for="apellido" class="label-input">Apellido</label>
+                                <input id="apellidoInput" type="text " class="inputForm" maxlength="20 " name="apellido" data-name="apellido" placeholder=" " required=" ">
                             </div>
                             <div class="object-form ">
-                                <label for="email " class="titulo-datos-registro ">Correo*</label>
+                                <label for="email " class="label-input ">Correo*</label>
                                 <input id="emailInput" type="email " class="inputForm" name="pais " data-name="pais " placeholder=" " required=" ">
                             </div>
+
+                            <div class="wrapper-input">
+                                <label for="phone" class="label-input ">Celular*</label>
+                                <input id="phoneInput" type="phone" class="inputForm" name="phone" data-name="phone" placeholder=" " required=" ">
+                            </div>
+
+
+
+                            <div class="wrapper-input">
+                                <label for="hobbie" class="label-input">Hobbie</label>
+                                <input id="hobbieInput" type="text" class="inputForm" name="hobbie" data-name="hobbie" placeholder=" " required=" ">
+                            </div>
+
+                            <div class="wrapper-input">
+                                <label for="pais" class="label-input">País</label>
+                                <select id="paisSelect" class="inputForm" name="pais" data-name="pais" required=" ">
+                                    <option value="">Selecciona un país</option>
+                                    <option value="mexico">México</option>
+                                    <option value="guatemala">Guatemala</option>
+                                    <option value="panama">Panamá</option>
+                                </select>
+                            </div>
+
+                            <div class="wrapper-input">
+                                <label for="estado" class="label-input">Estado</label>
+                                <select id="estadoSelect" class="inputForm" name="estado" data-name="estado" required=" ">
+                                    <option value="">Selecciona un estado</option>
+                                    <option value="aguascalientes">Aguascalientes</option>
+                                    <option value="baja_california">Baja California</option>
+                                    <option value="baja_california_sur">Baja California Sur</option>
+                                    <option value="campeche">Campeche</option>
+                                    <option value="chiapas">Chiapas</option>
+                                    <option value="chihuahua">Chihuahua</option>
+                                    <option value="coahuila">Coahuila</option>
+                                    <option value="colima">Colima</option>
+                                    <option value="durango">Durango</option>
+                                    <option value="estado_de_mexico">Estado de México</option>
+                                    <option value="guanajuato">Guanajuato</option>
+                                    <option value="guerrero">Guerrero</option>
+                                    <option value="hidalgo">Hidalgo</option>
+                                    <option value="jalisco">Jalisco</option>
+                                    <option value="michoacan">Michoacán</option>
+                                    <option value="morelos">Morelos</option>
+                                    <option value="nayarit">Nayarit</option>
+                                    <option value="nuevo_leon">Nuevo León</option>
+                                    <option value="oaxaca">Oaxaca</option>
+                                    <option value="puebla">Puebla</option>
+                                    <option value="queretaro">Querétaro</option>
+                                    <option value="quintana_roo">Quintana Roo</option>
+                                    <option value="san_luis_potosi">San Luis Potosí</option>
+                                    <option value="sinaloa">Sinaloa</option>
+                                    <option value="sonora">Sonora</option>
+                                    <option value="tabasco">Tabasco</option>
+                                    <option value="tamaulipas">Tamaulipas</option>
+                                    <option value="tlaxcala">Tlaxcala</option>
+                                    <option value="veracruz">Veracruz</option>
+                                    <option value="yucatan">Yucatán</option>
+                                    <option value="zacatecas">Zacatecas</option>
+                                </select>
+                            </div>
+
+                            <div class="wrapper-input">
+                                <label for="especialidad" class="label-input">Especialidad</label>
+                                <select id="especialidadSelect" class="inputForm" name="especialidad" data-name="especialidad" required=" ">
+                                    <option value="">Selecciona una especialidad</option>
+                                    <option value="ortodoncia">Ortodoncia</option>
+                                    <option value="odontopediatria">Odontopediatría</option>
+                                    <option value="implantologia">Implantología</option>
+                                    <option value="rehabilitacion">Rehabilitación</option>
+                                    <option value="protesis">Prótesis</option>
+                                    <option value="laboratorio_dental">Laboratorio dental</option>
+                                </select>
+                            </div>
+                            <div class="wrapper-input">
+                                <label class="label-input">Rango de edad</label>
+                                <div style="display: flex; gap: 16px; padding: 16px 32px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <input type="radio" id="edad1" name="edad" value="-28">
+                                        <label for="edad1" style="color: #E1E1E1;">-28</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <input type="radio" id="edad2" name="edad" value="29-44">
+                                        <label for="edad2" style="color: #E1E1E1;">29-44</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <input type="radio" id="edad3" name="edad" value="45-60">
+                                        <label for="edad3" style="color: #E1E1E1;">45-60</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <input type="radio" id="edad4" name="edad" value="61-70">
+                                        <label for="edad4" style="color: #E1E1E1;">61-70</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <input type="radio" id="edad5" name="edad" value="+70">
+                                        <label for="edad5" style="color: #E1E1E1;">+70</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
                             <div id="preview">
 
                             </div>
@@ -335,9 +442,6 @@
 
 
     </div>
-
-
-
 
 
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript "></script>
