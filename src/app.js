@@ -184,44 +184,49 @@ function correoExistente(info, nobre, apellido) {
 const formUploadImg = document.getElementById("wapperformUpdate2");
 
 function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre, apellido) {
-    nameInput.value = nobre;
-    apellidoInput.value = apellido;
-    emailInput.value = correoApi;
+    //nameInput.value = nobre;
+    //apellidoInput.value = apellido;
+
+    emailInput.value = correoApi || '';
     console.log(nobre, apellido)
+
+    // Obtener el select de país y el div contenedor del estado
+    const paisSelect = document.querySelector("#paisSelect");
+    const estadoSelect = document.querySelector("#estadoSelect");
+    const estadoContainer = document.querySelector("#wrapper-estado");
+
+    // Manejar cambios en el select de país
+    paisSelect.addEventListener("change", function() {
+        const selectedValue = this.options[this.selectedIndex].value;
+        if (selectedValue === "México") {
+            estadoContainer.classList.remove("hidden");
+            estadoSelect.setAttribute("required", "required");
+        } else {
+            estadoContainer.classList.add("hidden");
+            estadoSelect.removeAttribute("required");
+        }
+    });
+
+
+
+
     btnStep3.addEventListener("click", () => {
-        const nameValue = document.getElementById("nameInput").value;
-        const apellidoValue = document.getElementById("apellidoInput").value;
+        //const nameValue = document.getElementById("nameInput").value;
+        //const apellidoValue = document.getElementById("apellidoInput").value;
+
         const emailValue = document.getElementById("emailInput").value;
+        const phoneValue = document.getElementById("phoneInput").value;
+        const hobbieValue = document.getElementById("hobbieInput").value;
+        const paisValue = document.getElementById("paisSelect").value;
+        const estadoValue = document.getElementById("estadoSelect").value;
+        const especialidadValue = document.getElementById("especialidadSelect").value;
+
+        const radioSeleccionado = document.querySelector('input[name="edad"]:checked');
 
 
-        if (nameValue.length == 0) {
-            Swal.fire({
-                icon: 'error',
-                html: '<h4 class="title-2">Introduce tu nombre</h4>',
-                confirmButtonColor: '#3792E6',
-                buttonsStyling: false,
-                customClass: {
-                    confirmButton: 'btn-siguiente',
-                    popup: 'popAlert',
 
-                }
-            })
-            return;
-        }
-        if (apellidoValue.length == 0) {
-            Swal.fire({
-                icon: 'error',
-                html: '<h4 class="title-2">Introduce tu apellido</h4>',
-                confirmButtonColor: '#3792E6',
-                buttonsStyling: false,
-                customClass: {
-                    confirmButton: 'btn-siguiente',
-                    popup: 'popAlert',
 
-                }
-            })
-            return;
-        }
+
         re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
         if (!re.exec(emailValue)) {
             Swal.fire({
@@ -236,8 +241,93 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 }
             })
             return;
+        }
+        // Validar que el teléfono solo contenga números y tenga entre 7 y 10 dígitos
+        const phoneRegex = /^\d{7,10}$/;
+        if (phoneValue.length == 0 || !phoneRegex.test(phoneValue)) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce un número de teléfono válido</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+        if (hobbieValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Introduce un hobbie</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+        if (paisValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Elije un país</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+
+        // Solo validar estado si México está seleccionado
+        if (paisValue === "México" && estadoValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Elije un estado</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+
+        if (especialidadValue.length == 0) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Elije una especialidad</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
+        }
+
+        // Validar que se haya seleccionado una opción de edad
+        if (!radioSeleccionado) {
+            Swal.fire({
+                icon: 'error',
+                html: '<h4 class="title-2">Selecciona una edad</h4>',
+                confirmButtonColor: '#3792E6',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn-siguiente',
+                    popup: 'popAlert',
+                }
+            })
+            return;
         } else {
-            actualizarDatos(emailValue, idApi);
+            actualizarDatos(emailValue, idApi, phoneValue, hobbieValue, paisValue, estadoValue, especialidadValue, radioSeleccionado);
             formUploadImg.classList.remove('inactive');
             wapperformUpdate.classList.add('inactive')
             step2.classList.remove('step-active')
@@ -282,25 +372,66 @@ btnsiguienteFact.addEventListener("click", () => {
 })
 
 /*FUNCION QUE ENVIA LOS DATOS DE CONTACTO DEL MEDICO*/
-async function actualizarDatos(emailValue, idApi) {
-    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            "fields": {
-                "Correo": emailValue,
+async function actualizarDatos(emailValue, idApi, phoneValue, hobbieValue, paisValue, estadoValue, especialidadValue, radioSeleccionado) {
+    try {
+        // Crear el objeto de datos solo con los campos que tienen valor
+        const fields = {
+            "Correo": emailValue,
+            "Telefono": phoneValue,
+            "Hobbie": hobbieValue,
+            "Pais": paisValue,
+            "Especialidad": especialidadValue,
+            "Edad": radioSeleccionado.value
+        };
+
+        // Solo agregar el estado si el país es México
+        if (paisValue === "México") {
+            fields["Estado"] = estadoValue;
+        }
+
+        // Log para debugging
+        console.log('Datos a enviar:', fields);
+
+        const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV/${idApi}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                "fields": fields
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Error response:', errorData);
+            throw new Error(`Error al actualizar datos: ${response.status} - ${JSON.stringify(errorData)}`);
+        }
+
+        const data = await response.json();
+        console.log('Datos actualizados exitosamente:', data);
+        return data;
+
+    } catch (error) {
+        console.error('Error en actualizarDatos:', error);
+        Swal.fire({
+            icon: 'error',
+            html: '<h4 class="title-2">Error al actualizar los datos</h4>',
+            confirmButtonColor: '#3792E6',
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn-siguiente',
+                popup: 'popAlert',
             }
-        })
-    });
-    console.log(response);
+        });
+        throw error;
+    }
 }
 
 /* FUNCION PARA OBTENER EL ACTUAL VALOR INCREMENTAL */
 const getAutoIncrement = async() => {
-    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV/${configId}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -313,7 +444,7 @@ const getAutoIncrement = async() => {
 
 /* FUNCION PARA ACTUALIZAR EL VALOR INCREMENTAL */
 const updateAutoIncrement = async(lastValue) => {
-    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tbl6wPWtq2u2pETAl/${configId}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV/${configId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -453,7 +584,7 @@ function enviaDatosSinFact(idApi) {
     })
 };
 async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
-    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -472,7 +603,7 @@ async function registroSinFact(idApi, inputFoto2, numeroAleatorio2) {
 }
 
 async function enviaDatosFact(idApi, razonSocialValue, tPersona, rFiscal, rfcInput, cfdiInput, codigoPostal, inputFoto, numeroAleatorio) {
-    const response = await fetch(`https://api.airtable.com/v0/appkB6uizyQ89ZwG2/tblLrIw5BKGXGbcuV/${idApi}`, {
+    const response = await fetch(`https://api.airtable.com/v0/appJ9zfWOiOA8k0El/tblLrIw5BKGXGbcuV/${idApi}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

@@ -146,7 +146,7 @@
                         <h2 class="title-1 ">Datos personales</h2>
                         <p class="paragraph-1 ">Confirma tus datos personales y tu email</p>
                         <div class="content-grid-form ">
-                            <div class="object-form ">
+                            <!--<div class="object-form ">
                                 <label for="nombre " class="label-input">Nombre</label>
                                 <input id="nameInput" type="text " class="inputForm " maxlength="20 " name="nombre " data-name="nombre " placeholder=" " required=" ">
                             </div>
@@ -154,9 +154,10 @@
                                 <label for="apellido" class="label-input">Apellido</label>
                                 <input id="apellidoInput" type="text " class="inputForm" maxlength="20 " name="apellido" data-name="apellido" placeholder=" " required=" ">
                             </div>
+                        -->
                             <div class="object-form ">
                                 <label for="email " class="label-input ">Correo*</label>
-                                <input id="emailInput" type="email " class="inputForm" name="pais " data-name="pais " placeholder=" " required=" ">
+                                <input id="emailInput" type="email " class="inputForm" name="email" data-name="email" placeholder=" " required=" ">
                             </div>
 
                             <div class="wrapper-input">
@@ -173,17 +174,17 @@
 
                             <div class="wrapper-input">
                                 <label for="pais" class="label-input">País</label>
-                                <select id="paisSelect" class="inputForm" name="pais" data-name="pais" required=" ">
+                                <select id="paisSelect" class="inputFormSelect" name="pais" data-name="pais" required=" ">
                                     <option value="">Selecciona un país</option>
-                                    <option value="mexico">México</option>
-                                    <option value="guatemala">Guatemala</option>
-                                    <option value="panama">Panamá</option>
+                                    <option value="México">México</option>
+                                    <option value="Guatemala">Guatemala</option>
+                                    <option value="Panamá">Panamá</option>
                                 </select>
                             </div>
 
-                            <div class="wrapper-input">
+                            <div class="wrapper-input hidden" id="wrapper-estado">
                                 <label for="estado" class="label-input">Estado</label>
-                                <select id="estadoSelect" class="inputForm" name="estado" data-name="estado" required=" ">
+                                <select id="estadoSelect" class="inputFormSelect" name="estado" data-name="estado" required=" ">
                                     <option value="">Selecciona un estado</option>
                                     <option value="aguascalientes">Aguascalientes</option>
                                     <option value="baja_california">Baja California</option>
@@ -221,7 +222,7 @@
 
                             <div class="wrapper-input">
                                 <label for="especialidad" class="label-input">Especialidad</label>
-                                <select id="especialidadSelect" class="inputForm" name="especialidad" data-name="especialidad" required=" ">
+                                <select id="especialidadSelect" class="inputFormSelect" name="especialidad" data-name="especialidad" required=" ">
                                     <option value="">Selecciona una especialidad</option>
                                     <option value="ortodoncia">Ortodoncia</option>
                                     <option value="odontopediatria">Odontopediatría</option>
@@ -233,32 +234,29 @@
                             </div>
                             <div class="wrapper-input">
                                 <label class="label-input">Rango de edad</label>
-                                <div style="display: flex; gap: 16px; padding: 16px 32px;">
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                <div class="wrapper-radio-edad-container">
+                                    <div class="wrapper-radio-edad">
                                         <input type="radio" id="edad1" name="edad" value="-28">
                                         <label for="edad1" style="color: #E1E1E1;">-28</label>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div class="wrapper-radio-edad">
                                         <input type="radio" id="edad2" name="edad" value="29-44">
                                         <label for="edad2" style="color: #E1E1E1;">29-44</label>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div class="wrapper-radio-edad">
                                         <input type="radio" id="edad3" name="edad" value="45-60">
                                         <label for="edad3" style="color: #E1E1E1;">45-60</label>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div class="wrapper-radio-edad">
                                         <input type="radio" id="edad4" name="edad" value="61-70">
                                         <label for="edad4" style="color: #E1E1E1;">61-70</label>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div class="wrapper-radio-edad">
                                         <input type="radio" id="edad5" name="edad" value="+70">
                                         <label for="edad5" style="color: #E1E1E1;">+70</label>
                                     </div>
                                 </div>
                             </div>
-
-
-
 
                             <div id="preview">
 
@@ -289,31 +287,31 @@
                     <form class="component-form-update " action=" " id="formNew" name="Formulairo-para-actulizar ">
                         <div class="content-grid-form ">
                             <div class="object-form ">
-                                <h3 class="title-1 title-center">Sube tu comprobante de pago</h3>
-                                <p class="paragraph-2">Puede ser en formato PDF, PNG, JPG. </p>
+                                <h3 class="title-1">Sube tu comprobante de pago</h3>
+                                <p class="paragraph-2">Puede ser en formato PDF, PNG, JPG.</p>
                                 <div id="card-data-banc" class="wrapper-card-btn-upl">
-                                    <button type="button" id="btn-foto" class="btn-siguiente">Subir
+                                    <button type="button" id="btn-foto" class="button">Subir
                                             Comprobante</button>
                                     <div class="card-info-pago">
                                         <div>
-                                            <h2 class="title-price">CUOTA DE INSCRIPCIÓN</h2>
-                                            <h2 class="price ">$3,500.00 <span>MXN</span></h2>
+                                            <h2 class="title-price text-color-yellow">CUOTA DE INSCRIPCIÓN</h2>
+                                            <h2 class="price text-color-white">$3,500.00 <span>MXN</span></h2>
                                         </div>
                                         <div class="divider"></div>
                                         <div>
-                                            <h3 class="datos-paog">Datos para pagar:</h3>
+                                            <h3 class="title-dat-pago">Datos para pagar:</h3>
                                             <p class="nombre-cuenta">ORTHODONTIC CO UNIVERSIDAD SA DE CV BANCOMER BBVA</p>
                                         </div>
                                         <div>
-                                            <h3 class="title-dat-pago">NUM DE CUENTA CLABE:</h3>
+                                            <h3 class="title-dat-pago">Num. de cuenta clabe:</h3>
                                             <p class="texto-info-2">012180001934-69-86-73</p>
                                         </div>
                                         <div>
-                                            <h3 class="title-dat-pago">NUM DE CUENTA:</h3>
+                                            <h3 class="title-dat-pago">Num. de cuenta:</h3>
                                             <p class="texto-info-2 ">01934-69867</p>
                                         </div>
                                         <div>
-                                            <h3 class="title-dat-pago">NUM DE CLIENTE:</h3>
+                                            <h3 class="title-dat-pago">Num. de cliente:</h3>
                                             <p class="texto-info-2">A9377252</p>
                                         </div>
                                     </div>
@@ -322,7 +320,8 @@
                                 <img id="user-photo" class="comprobanteImg">
 
                                 <div class="wrapp-btn-sig-upload inactive" id="btn-sig-upload">
-                                    <button id="btnsiguientefact" class="btn-siguiente " type="button">Siguiente</button>
+                                    <button type="button" id="cambiarImagen" class="button">cambiar imagen</button>
+                                    <button id="btnsiguientefact" class="button" type="button">Siguiente</button>
                                 </div>
                             </div>
                         </div>
@@ -342,12 +341,12 @@
                         <div class="wrapper-btn-factura-si-no">
                             <div class="wrapper-btn-si-no">
                                 <label id="btnNo" for="no" class="btn-select-invoice">
-                                        <input type="radio" name="factura"
+                                        <input class="radio-factura" type="radio" name="factura"
                                             id="no" checked>
                                         <span>No es necesario</span>
                                     </label>
                                 <label id="btnSi" for="si" class="btn-select-invoice">
-                                        <input type="radio" name="factura"
+                                        <input class="radio-factura" type="radio" name="factura"
                                             id="si">
                                         <span>Si necesito</span>
                                     </label>
@@ -359,13 +358,13 @@
                     <div id="wrapper-data-factura" class="inactive">
                         <div class="style-form-fact">
                             <div class="object-form">
-                                <label for="razonSocial" class="titulo-datos-registro">Razon social*</label>
-                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" placeholder="Nombre" required=" ">
+                                <label for="razonSocial" class="label-input">Razon social*</label>
+                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" required=" ">
                             </div>
                             <div class="object-form">
-                                <label>Tipo de persona*</label>
+                                <label class="label-input">Tipo de persona*</label>
                                 <div class="wrapper-select" style="display:flex; gap: 16px;">
-                                    <select name="tipoPersona" id="tPersona" class="inputForm">
+                                    <select name="tipoPersona" id="tPersona" class="inputFormSelect">
                                         <option value="" disabled selected>Selecciona un tipo de personan</option>
                                             <option value="Fisíca">Fisíca</option>
                                             <option value="Moral">Moral</option>
@@ -375,9 +374,9 @@
                                 </div>
                             </div>
                             <div class="object-form">
-                                <label>Régimen Fiscal*</label>
+                                <label class="label-input">Régimen Fiscal*</label>
                                 <div class="wrapper-select" style="display:flex; gap: 16px;">
-                                    <select name="regimenFiscal" id="regimenFiscal" class="inputForm">
+                                    <select name="regimenFiscal" id="regimenFiscal" class="inputFormSelect">
                                         <option value="" disabled selected>Selecciona un régimen</option>
                                             <option value="(601) General de Ley Personas Morales">(601) General de Ley Personas Morales</option>
                                             <option value="(612) Personas Físicas con Actividades Empresariales y Profesionales">(612) Personas Físicas con Actividades Empresariales y Profesionales</option>
@@ -389,14 +388,14 @@
                                 </div>
                             </div>
                             <div class="object-form">
-                                <label for="rfc" class="titulo-datos-registro">RFC*</label>
-                                <input id="rfcInput" type="text " class="inputForm" name="rfc " placeholder="RFC con homoclave" required=" ">
+                                <label for="rfc" class="label-input">RFC*</label>
+                                <input id="rfcInput" type="text " class="inputForm" name="rfc " required=" ">
                             </div>
                             <div class="object-form">
-                                <label for="cfdi" class="titulo-datos-registro ">Categoría
+                                <label for="cfdi" class="label-input ">Categoría
                                         (uso del CFDI)*</label>
                                 <div class="wrapper-select">
-                                    <select name="cfdi " id="cfdiInput" form=" " class="inputForm">
+                                    <select name="cfdi " id="cfdiInput" form=" " class="inputFormSelect">
                                         
                                         <option value="" disabled selected>Selecciona un uso CFDI</option>
                                             <option value="Adquisición de mercancias">Adquisición de
@@ -411,9 +410,9 @@
                                 </div>
                             </div>
                             <div class="object-form">
-                                <label for="rfc" class="titulo-datos-registro">Código
+                                <label for="rfc" class="label-input">Código
                                         postal</label>
-                                <input id="codigoPostal" type="number" class="inputForm" name="calle" placeholder="Código postal" required=" ">
+                                <input id="codigoPostal" type="number" class="inputForm" name="calle" required=" ">
                             </div>
                         </div>
                     </div>

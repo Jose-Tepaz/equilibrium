@@ -71,8 +71,28 @@ h3 {
     margin: 6px 0;
 }
 
+.hidden {
+    display: none!important;
+}
+
+.show {
+    display: flex!important;
+}
+
 .text-color-yellow {
     color: var(--yellow-1)!important;
+}
+
+.text-color-white {
+    color: var(--blanco)!important;
+}
+
+.text-weight-normal {
+    font-weight: 500!important;
+}
+
+.text-weight-bold {
+    font-weight: 900!important;
 }
 
 .desktopNone {
@@ -85,7 +105,6 @@ h3 {
     color: var(--blanco);
     font-size: 42px;
     line-height: 120%;
-    margin-bottom: 16px;
 }
 
 .title-2 {
@@ -114,7 +133,7 @@ h3 {
 }
 
 .inactive {
-    display: none;
+    display: none!important;
 }
 
 .btn-siguiente {
@@ -141,6 +160,11 @@ h3 {
 
 .popAlert {
     border-radius: 30px;
+    background-color: var(--black-1) !important;
+}
+
+.popAlert h4 {
+    color: var(--blanco) !important;
 }
 
 .general-container {
@@ -459,6 +483,51 @@ button:hover {
     color: #E1E1E1;
 }
 
+
+/* Estilos para autofill */
+
+.inputForm:-webkit-autofill,
+.inputForm:-webkit-autofill:hover,
+.inputForm:-webkit-autofill:focus,
+.inputForm:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--black-1) inset !important;
+    -webkit-text-fill-color: #E1E1E1 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.serch-input:-webkit-autofill,
+.serch-input:-webkit-autofill:hover,
+.serch-input:-webkit-autofill:focus,
+.serch-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--black-1) inset !important;
+    -webkit-text-fill-color: #E1E1E1 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.inputFormSelect {
+    width: 100%;
+    border-radius: 16px;
+    padding: 8.5px 17px;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #BDBDBDB2;
+    font-family: 'Avenir';
+    font-size: 18px;
+    color: #E1E1E1;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('../asets/vector arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+}
+
+.inputFormSelect option {
+    background-color: var(--black-1);
+    color: #E1E1E1;
+}
+
 .style-form-fact {
     display: flex;
     flex-direction: column;
@@ -499,23 +568,23 @@ button:hover {
 /*COMPROBANTE*/
 
 .wrapper-card-btn-upl {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 
 .paragraph-2 {
-    margin-top: 16px;
+    margin-top: 18px;
     font-family: 'Avenir';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     line-height: 25px;
-    color: #4F4F4F;
-    text-align: center;
+    color: var(--blanco);
 }
 
 .card-info-pago {
-    background: rgba(239, 240, 246, 0.35);
-    padding: 32px;
+    font-family: 'Avenir';
+    font-size: 32px;
+    font-weight: 900;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -524,9 +593,9 @@ button:hover {
 }
 
 .title-price {
-    font-family: 'Bison';
+    font-family: 'Avenir';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 800;
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.02em;
@@ -573,37 +642,36 @@ button:hover {
 .nombre-cuenta {
     font-family: 'Avenir';
     font-style: normal;
-    font-weight: 850;
+    font-weight: 500;
     font-size: 14px;
-    line-height: 22px;
-    color: #4F4F4F;
+    line-height: 27px;
+    color: #c8c8c8;
 }
 
 .title-dat-pago {
     font-family: 'Avenir';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 800;
+    font-size: 16px;
     line-height: 19px;
-    color: #4F4F4F;
+    color: var(--blanco);
 }
 
 .texto-info-2 {
     font-family: 'Avenir';
     font-style: normal;
-    font-weight: 850;
-    font-size: 17px;
+    font-weight: 500;
+    font-size: 14px;
     line-height: 27px;
-    color: #4F4F4F;
+    color: #c8c8c8;
 }
 
 .comprobanteImg {
     width: 290px;
-    margin: auto;
-}
-
-#btn-foto:hover {
-    background: var(--blue-hover-1);
+    border-radius: 20px;
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: 16px;
 }
 
 
@@ -642,6 +710,14 @@ button:hover {
     width: 50%;
 }
 
+.wrapp-btn-sig-upload {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    margin-top: 25px;
+}
+
 .btn-select-invoice span {
     display: flex;
     flex-direction: row;
@@ -655,7 +731,7 @@ button:hover {
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.02em;
-    color: #4F4F4F;
+    color: #fff;
     cursor: pointer;
     border-style: solid;
     border-width: 2px;
@@ -666,7 +742,8 @@ button:hover {
 .btn-select-invoice span:hover {
     background: #fff;
     border-width: 2px;
-    border-color: #4EABE5;
+    border-color: #fff;
+    color: var(--black-1);
 }
 
 input[type="radio"] {
@@ -674,10 +751,41 @@ input[type="radio"] {
     color: #308BBE;
 }
 
+.wrapper-radio-edad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.wrapper-radio-edad label {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.wrapper-radio-edad input[type="radio"] {
+    display: block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.wrapper-radio-edad-container {
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 input:checked+span {
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(52, 139, 219, 0.1);
     cursor: pointer;
+    color: var(--black-1)
 }
 
 #wrapper-data-factura {
