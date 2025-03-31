@@ -346,6 +346,7 @@ previwStep2.addEventListener("click", () => {
     step3.classList.remove('step-active')
     step2m.classList.add('step-active')
     step3m.classList.remove('step-active')
+
 });
 
 /*REGRESA PASO 3*/
@@ -646,18 +647,18 @@ function succes() {
 btnSi.addEventListener("click", () => {
     dataFactura.classList.remove("inactive");
     btnRegistrarseFact.classList.remove("inactive");
-    btnRegistrarseFact.classList.add("btn-t-2-finalizar");
+
     btnSinFact.classList.add("inactive");
-    btnSinFact.classList.remove("btn-t-2-finalizar");
+
 });
 
 const btnSinFact = document.getElementById("btnRegistrarseSinfac");
 btnNo.addEventListener("click", () => {
     dataFactura.classList.add("inactive");
     btnSinFact.classList.remove("inactive");
-    btnSinFact.classList.add("btn-t-2-finalizar");
+
     btnRegistrarseFact.classList.add("inactive");
-    btnRegistrarseFact.classList.remove("btn-t-2-finalizar");
+
 
 
 });
