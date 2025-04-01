@@ -85,7 +85,7 @@
     }
     .steps {
         width: 100%;
-        position: static;
+        position: relative;
         flex-direction: row;
         margin-top: 0px;
         align-items: center;
@@ -96,8 +96,8 @@
         position: absolute;
         display: flex;
         width: 100%;
-        top: 7.5rem;
-        padding: 0px 55px 0px 32px;
+        top: 12px;
+        padding: 0px 35px 0px 32px;
     }
     .linetimline {
         width: 100%;
