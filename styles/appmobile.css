@@ -4,6 +4,13 @@
         padding: 0px 0px;
         margin: 0;
     }
+    .main-container {
+        display: flex;
+        height: 100%;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     .padding-global {
         padding: 0 20px;
         width: 100%;
