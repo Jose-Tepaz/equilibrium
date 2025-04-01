@@ -12,6 +12,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./styles/app.css">
     <link rel="stylesheet" href="./styles/appmobile.css">
+    <link rel="icon" type="image/x-icon" href="./asets/favicon-equilibrium.png">
 
 </head>
 
@@ -118,18 +119,22 @@
                         <div class="content-function">
                             <div class="section-load-email" id="wrapper-load-email">
                                 <div class="general-container">
-                                    <div class="wrapper-arrow-prev" id="prev-step-1">
-                                        <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
-                                        Atrás
-                                    </div>
+
 
                                     <div class="component-load-dpi">
+
                                         <div id="wrapp-foorm-search" class="wrapp-foorm-search">
-                                            <h2 class="title-1 title-center"> ¿Eres parte de Borgatta? </h2>
-                                            <p class="paragraph-1 title-center">Asegúrate de usar el/los nombre(s) y apellidos con los que te regístraste en Borgatta</p>
+                                            <div class="wrapper-arrow-prev" id="prev-step-1">
+
+                                            </div>
+                                            <div class="wrapper-titles">
+                                                <h2 class="title-1 title-center"> ¿Eres parte de Borgatta? </h2>
+                                                <p class="paragraph-1 title-center">Asegúrate de usar el/los nombre(s) y apellidos con los que te regístraste en Borgatta</p>
+                                            </div>
+
                                             <form id="searchForm" class="form-search-name" action="">
                                                 <div class="wrapper-input">
-                                                    <label for="inputName" class="label-input">Nombre</label>
+                                                    <label for="inputName" class="label-input">Nombres</label>
                                                     <input id="inputName" type="search" placeholder="Nombre" class="serch-input">
                                                 </div>
                                                 <div class="wrapper-input">
@@ -143,6 +148,10 @@
                                         <!--ALERTA NO EXISTE-->
 
                                         <div id="correoNoExiste" class="inactive">
+                                            <div class="wrapper-arrow-prev" id="prev-step-1">
+                                                <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                                                Atrás
+                                            </div>
                                             <div class="alert-noexiste">
                                                 <div id="dpiNoExis" class="wrapper-content-alert">
                                                     <img src="./asets/flase.svg " alt=" ">
@@ -157,6 +166,10 @@
                                         </div>
                                         <!--ALERTA CORREOEXISTE-->
                                         <div id="correoExiste" class="inactive">
+                                            <div class="wrapper-arrow-prev" id="prev-step-1">
+                                                <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                                                Atrás
+                                            </div>
                                             <div>
                                                 <div class="wrapper-content-alert">
                                                     <img src="./asets/check-gren.svg" alt=" ">
@@ -172,8 +185,12 @@
                                         </div>
                                         <!--ALERTA YA REGISTRADOE-->
                                         <div id="medicoRegistrado" class=" inactive ">
+                                            <div class="wrapper-arrow-prev" id="prev-step-1">
+                                                <a href=""><img src="./asets/Vector-arrow-prev.svg" alt=""></a>
+                                                Atrás
+                                            </div>
                                             <div class="wrapper-content-alert ">
-                                                <img src="./asets/ckeck.svg " alt=" ">
+                                                <img src="./asets/status-succes.svg" alt=" ">
                                                 <h2 class="title-2 ">Ya estás registrado</h2>
                                                 <p class="paragraph-1 title-center ">Ya estás registrado para la convención, tu ingreso será con los datos que te enviamos por correo</p>
                                             </div>
@@ -328,14 +345,14 @@
                                         <div class="content-grid-form ">
                                             <div class="object-form ">
                                                 <h3 class="title-1">Sube tu comprobante de pago</h3>
-                                                <p class="paragraph-2">Puede ser en formato PDF, PNG, JPG.</p>
+                                                <p class="paragraph-2">Puede ser en formato PDF o imagen.</p>
                                                 <div id="card-data-banc" class="wrapper-card-btn-upl">
                                                     <button type="button" id="btn-foto" class="button">Subir
                                                         Comprobante</button>
                                                     <div class="card-info-pago">
                                                         <div>
                                                             <h2 class="title-price text-color-yellow">CUOTA DE INSCRIPCIÓN</h2>
-                                                            <h2 class="price text-color-white">$3,500.00 <span>MXN</span></h2>
+                                                            <h2 class="price text-color-white">$4,500.00 <span>MXN</span></h2>
                                                         </div>
                                                         <div class="divider"></div>
                                                         <div>
@@ -360,7 +377,7 @@
                                                 <img id="user-photo" class="comprobanteImg">
 
                                                 <div class="wrapp-btn-sig-upload inactive" id="btn-sig-upload">
-                                                    <button type="button" id="cambiarImagen" class="button">cambiar imagen</button>
+                                                    <button type="button" id="cambiarImagen" class="button is-secondary">Cambiar imagen</button>
                                                     <button id="btnsiguientefact" class="button" type="button">Siguiente</button>
                                                 </div>
                                             </div>
@@ -370,98 +387,102 @@
                             </div>
                             <!--FORMULARIO DATOS DE FACTURACION-->
                             <div class="section-form-invoice inactive" id="invoice-section">
-                                <div class="wrapper-arrow-prev" id="prev-step-1">
-                                    <a id="preview-step3"><img src="./asets/Vector-arrow-prev.svg" alt=" "></a>
-                                    Atrás
+                                <div class="general-container-second">
+                                    <div class="wrapper-arrow-prev" id="prev-step-1">
+                                        <a id="preview-step3"><img src="./asets/Vector-arrow-prev.svg" alt=" "></a>
+                                        Atrás
+                                    </div>
+                                    <form action=" " class="form-invoice ">
+                                        <div>
+                                            <h3 class="title-1 ">Datos de facturación</h3>
+                                            <p class="paragraph-3 ">¿Necesitas factura?</p>
+                                            <div class="wrapper-btn-factura-si-no">
+                                                <div class="wrapper-btn-si-no">
+                                                    <label id="btnNo" for="no" class="btn-select-invoice">
+                                                        <input class="radio-factura" type="radio" name="factura"
+                                                            id="no" checked>
+                                                        <span>No es necesario</span>
+                                                    </label>
+                                                    <label id="btnSi" for="si" class="btn-select-invoice">
+                                                        <input class="radio-factura" type="radio" name="factura"
+                                                            id="si">
+                                                        <span>Si necesito</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div id="wrapper-data-factura" class="inactive">
+                                            <div class="style-form-fact">
+                                                <div class="object-form">
+                                                    <label for="razonSocial" class="label-input">Razon social*</label>
+                                                    <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" required=" ">
+                                                </div>
+                                                <div class="object-form">
+                                                    <label class="label-input">Tipo de persona*</label>
+                                                    <div class="wrapper-select" style="display:flex; gap: 16px;">
+                                                        <select name="tipoPersona" id="tPersona" class="inputFormSelect">
+                                                        <option value="" disabled selected>Selecciona un tipo de personan</option>
+                                                            <option value="Fisíca">Fisíca</option>
+                                                            <option value="Moral">Moral</option>
+                                                        </select>
+                                                        <i><img src="./asets/vector arrow.svg"
+                                                                alt=" "></i>
+                                                    </div>
+                                                </div>
+                                                <div class="object-form">
+                                                    <label class="label-input">Régimen Fiscal*</label>
+                                                    <div class="wrapper-select" style="display:flex; gap: 16px;">
+                                                        <select name="regimenFiscal" id="regimenFiscal" class="inputFormSelect">
+                                                        <option value="" disabled selected>Selecciona un régimen</option>
+                                                            <option value="(601) General de Ley Personas Morales">(601) General de Ley Personas Morales</option>
+                                                            <option value="(612) Personas Físicas con Actividades Empresariales y Profesionales">(612) Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                                            <option value="(621) Incorporación Final">(621) Incorporación Final </option>
+                                                            <option value="(626) Régimen Simplificado de Confianza">(626) Régimen Simplificado de Confianza</option>
+                                                        </select>
+                                                        <i><img src="./asets/vector arrow.svg"
+                                                                alt=" "></i>
+                                                    </div>
+                                                </div>
+                                                <div class="object-form">
+                                                    <label for="rfc" class="label-input">RFC*</label>
+                                                    <input id="rfcInput" type="text " class="inputForm" name="rfc " required=" ">
+                                                </div>
+                                                <div class="object-form">
+                                                    <label for="cfdi" class="label-input ">Categoría
+                                                        (uso del CFDI)*</label>
+                                                    <div class="wrapper-select">
+                                                        <select name="cfdi " id="cfdiInput" form=" " class="inputFormSelect">
+                                                        
+                                                        <option value="" disabled selected>Selecciona un uso CFDI</option>
+                                                            <option value="Adquisición de mercancias">Adquisición de
+                                                                mercancias</option>
+                                                            <option value="Gastos en general">Gastos
+                                                                en general</option>
+                                                            <option value="Por definir">Por
+                                                                definir</option>
+                                                        </select>
+                                                        <i><img src="./asets/vector arrow.svg"
+                                                                alt=" "></i>
+                                                    </div>
+                                                </div>
+                                                <div class="object-form">
+                                                    <label for="rfc" class="label-input">Código
+                                                        postal</label>
+                                                    <input id="codigoPostal" type="number" class="inputForm" name="calle" required=" ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btns-finalizar">
+                                            <button id="btnRegistrarse2" class="button inactive" type="button">Siguiente</button>
+                                            <button id="btnRegistrarseSinfac" class="button" type="button">Siguiente</button>
+                                        </div>
+
+                                    </form>
+
                                 </div>
-                                <form action=" " class="form-invoice ">
-                                    <div>
-                                        <h3 class="title-1 ">Datos de facturación</h3>
-                                        <p class="paragraph-1 ">¿Necesitas factura?</p>
-                                        <div class="wrapper-btn-factura-si-no">
-                                            <div class="wrapper-btn-si-no">
-                                                <label id="btnNo" for="no" class="btn-select-invoice">
-                                                    <input class="radio-factura" type="radio" name="factura"
-                                                        id="no" checked>
-                                                    <span>No es necesario</span>
-                                                </label>
-                                                <label id="btnSi" for="si" class="btn-select-invoice">
-                                                    <input class="radio-factura" type="radio" name="factura"
-                                                        id="si">
-                                                    <span>Si necesito</span>
-                                                </label>
-                                            </div>
 
-                                        </div>
-                                    </div>
-
-                                    <div id="wrapper-data-factura" class="inactive">
-                                        <div class="style-form-fact">
-                                            <div class="object-form">
-                                                <label for="razonSocial" class="label-input">Razon social*</label>
-                                                <input id="razonSocialInput" type="text" class="inputForm" name="razonSocial" data-name="nombre" required=" ">
-                                            </div>
-                                            <div class="object-form">
-                                                <label class="label-input">Tipo de persona*</label>
-                                                <div class="wrapper-select" style="display:flex; gap: 16px;">
-                                                    <select name="tipoPersona" id="tPersona" class="inputFormSelect">
-                                                    <option value="" disabled selected>Selecciona un tipo de personan</option>
-                                                        <option value="Fisíca">Fisíca</option>
-                                                        <option value="Moral">Moral</option>
-                                                    </select>
-                                                    <i><img src="./asets/vector arrow.svg"
-                                                            alt=" "></i>
-                                                </div>
-                                            </div>
-                                            <div class="object-form">
-                                                <label class="label-input">Régimen Fiscal*</label>
-                                                <div class="wrapper-select" style="display:flex; gap: 16px;">
-                                                    <select name="regimenFiscal" id="regimenFiscal" class="inputFormSelect">
-                                                    <option value="" disabled selected>Selecciona un régimen</option>
-                                                        <option value="(601) General de Ley Personas Morales">(601) General de Ley Personas Morales</option>
-                                                        <option value="(612) Personas Físicas con Actividades Empresariales y Profesionales">(612) Personas Físicas con Actividades Empresariales y Profesionales</option>
-                                                        <option value="(621) Incorporación Final">(621) Incorporación Final </option>
-                                                        <option value="(626) Régimen Simplificado de Confianza">(626) Régimen Simplificado de Confianza</option>
-                                                    </select>
-                                                    <i><img src="./asets/vector arrow.svg"
-                                                            alt=" "></i>
-                                                </div>
-                                            </div>
-                                            <div class="object-form">
-                                                <label for="rfc" class="label-input">RFC*</label>
-                                                <input id="rfcInput" type="text " class="inputForm" name="rfc " required=" ">
-                                            </div>
-                                            <div class="object-form">
-                                                <label for="cfdi" class="label-input ">Categoría
-                                                    (uso del CFDI)*</label>
-                                                <div class="wrapper-select">
-                                                    <select name="cfdi " id="cfdiInput" form=" " class="inputFormSelect">
-                                                    
-                                                    <option value="" disabled selected>Selecciona un uso CFDI</option>
-                                                        <option value="Adquisición de mercancias">Adquisición de
-                                                            mercancias</option>
-                                                        <option value="Gastos en general">Gastos
-                                                            en general</option>
-                                                        <option value="Por definir">Por
-                                                            definir</option>
-                                                    </select>
-                                                    <i><img src="./asets/vector arrow.svg"
-                                                            alt=" "></i>
-                                                </div>
-                                            </div>
-                                            <div class="object-form">
-                                                <label for="rfc" class="label-input">Código
-                                                    postal</label>
-                                                <input id="codigoPostal" type="number" class="inputForm" name="calle" required=" ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="btns-finalizar">
-                                        <button id="btnRegistrarse2" class="button inactive" type="button">Siguiente</button>
-                                        <button id="btnRegistrarseSinfac" class="button" type="button">Siguiente</button>
-                                    </div>
-
-                                </form>
                             </div>
                         </div>
 
@@ -470,8 +491,20 @@
 
                 </div>
 
-            </div>
 
+            </div>
+            <div class="line-footer">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="wrapp-footer">
+                            <div class="imgFooter"> <img src="./asets/logotype.svg" alt=" "> </div>
+                            <div class="text-footer">Un evento exclusivo de Borgatta</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </section>
 
         <div id="wrapper-ok" class="inactive">
@@ -490,17 +523,7 @@
 
 
         </div>
-        <div class="line-footer">
-            <div class="padding-global">
-                <div class="container-large">
-                    <div class="wrapp-footer">
-                        <div class="imgFooter"> <img src="./asets/logotype.svg" alt=" "> </div>
-                        <div class="text-footer">Un evento exclusivo de Borgatta</div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
     </div>
 
 

@@ -70,7 +70,7 @@ body {
 
 h2 {
     font-family: 'Avenir', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     margin: 0px;
 }
 
@@ -105,6 +105,8 @@ h3 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 100%;
+    min-height: 90vh;
 }
 
 .text-color-yellow {
@@ -131,9 +133,15 @@ h3 {
     display: none!important;
 }
 
+.wrapper-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .title-1 {
     font-family: 'Avenir';
-    font-weight: 800;
+    font-weight: 900;
     color: var(--blanco);
     font-size: 42px;
     line-height: 120%;
@@ -145,7 +153,7 @@ h3 {
     color: var(--blanco);
     font-size: 24px;
     line-height: 29px;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
 }
 
 .title-center {
@@ -158,8 +166,16 @@ h3 {
 
 .paragraph-1 {
     font-family: 'Avenir';
-    font-weight: 200;
+    font-weight: 300;
     font-size: 16px;
+    color: var(--blanco);
+    line-height: 1.5em;
+}
+
+.paragraph-3 {
+    font-family: 'Avenir';
+    font-weight: 200;
+    font-size: 24px;
     color: var(--blanco);
     line-height: 1.5em;
 }
@@ -205,9 +221,16 @@ h3 {
     margin: 0 auto;
 }
 
+.general-container-second {
+    height: 100%;
+    width: 520px;
+    margin: 0 auto;
+}
+
 .container440 {
     width: 100%;
     max-width: 440px;
+    margin: auto;
 }
 
 .component-load-dpi {
@@ -243,8 +266,10 @@ h3 {
     overflow: hidden;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--black-1);
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 
@@ -272,7 +297,7 @@ h3 {
     position: absolute;
     background: #F8EDBA;
     width: 2px;
-    height: 125px;
+    height: 150px;
     top: 20px;
     left: 11px;
     z-index: 5;
@@ -313,6 +338,7 @@ h3 {
 .text-step {
     font-family: 'Avenir';
     font-weight: 500;
+    font-size: 20px;
 }
 
 .active {
@@ -336,7 +362,7 @@ h3 {
     line-height: 120%;
     gap: 12px;
     margin-top: 120px;
-    margin-bottom: 108px;
+    margin-bottom: 32px;
     color: var(--blanco);
 }
 
@@ -354,7 +380,7 @@ h3 {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    padding: 48px 32px;
+    padding: 0px 32px;
 }
 
 
@@ -403,7 +429,7 @@ h3 {
     width: 100%;
     border-width: 1px;
     border-radius: 30px;
-    padding: 14px 32px;
+    padding: 14px 16px;
     font-family: 'Inter';
     font-weight: 300;
     color: var(--blanco);
@@ -425,12 +451,26 @@ h3 {
     border: 1px solid transparent;
     transition: 0.3s ease-in-out;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .button:hover {
     background: transparent;
     border: 1px solid var(--blanco);
     color: var(--blanco);
+}
+
+.button.is-secondary {
+    background: transparent;
+    border: 1px solid var(--blanco);
+    color: var(--blanco);
+    transition: 0.3s ease-in-out;
+}
+
+.button.is-secondary:hover {
+    background: var(--blanco);
+    color: var(--black-1);
+    border: 1px solid var(--blanco);
 }
 
 
@@ -558,7 +598,7 @@ h3 {
 .inputFormSelect {
     width: 100%;
     border-radius: 16px;
-    padding: 8.5px 17px;
+    padding: 10px 17px;
     background: transparent;
     border-radius: 30px;
     border: 1px solid #BDBDBDB2;
@@ -744,6 +784,11 @@ h3 {
 .form-invoice {
     width: 100%;
     max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 600px;
 }
 
 .wrapper-btn-si-no {

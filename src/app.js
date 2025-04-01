@@ -19,7 +19,7 @@ searchFormBtn.addEventListener('click', () => {
             confirmButtonColor: '#3792E6',
             buttonsStyling: false,
             customClass: {
-                confirmButton: 'btn-siguiente',
+                confirmButton: 'button',
                 popup: 'popAlert',
             }
         })
@@ -33,7 +33,7 @@ searchFormBtn.addEventListener('click', () => {
             confirmButtonColor: '#3792E6',
             buttonsStyling: false,
             customClass: {
-                confirmButton: 'btn-siguiente',
+                confirmButton: 'button',
                 popup: 'popAlert',
             }
         })
@@ -235,7 +235,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
 
                 }
@@ -243,7 +243,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
             return;
         }
         // Validar que el teléfono solo contenga números y tenga entre 7 y 10 dígitos
-        const phoneRegex = /^\d{7,10}$/;
+        const phoneRegex = /^\d{7,15}$/;
         if (phoneValue.length == 0 || !phoneRegex.test(phoneValue)) {
             Swal.fire({
                 icon: 'error',
@@ -251,7 +251,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -264,7 +264,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -277,7 +277,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -292,7 +292,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -306,7 +306,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -321,7 +321,7 @@ function registroDeMedico(nameApi, telefonoApi, correoApi, paisApi, idApi, nobre
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -422,7 +422,7 @@ async function actualizarDatos(emailValue, idApi, phoneValue, hobbieValue, paisV
             confirmButtonColor: '#3792E6',
             buttonsStyling: false,
             customClass: {
-                confirmButton: 'btn-siguiente',
+                confirmButton: 'button',
                 popup: 'popAlert',
             }
         });
@@ -481,7 +481,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -494,7 +494,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -507,7 +507,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -520,7 +520,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -534,7 +534,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -549,7 +549,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
@@ -562,7 +562,7 @@ function datosParaFactura(idApi) {
                 confirmButtonColor: '#3792E6',
                 buttonsStyling: false,
                 customClass: {
-                    confirmButton: 'btn-siguiente',
+                    confirmButton: 'button',
                     popup: 'popAlert',
                 }
             })
