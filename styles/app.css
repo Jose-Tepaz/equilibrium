@@ -2,7 +2,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     background: var(--black-1);
 }
 
@@ -244,7 +243,6 @@ h3 {
     overflow: hidden;
     width: 100%;
     display: flex;
-    min-height: 90vh;
     background: var(--black-1);
 }
 
