@@ -87,23 +87,17 @@
     .component-load-dpi {
         width: auto;
     }
-
-
-    .wrapper-content-alert{
+    .wrapper-content-alert {
         margin-top: 30%;
     }
-
     .wrapper-arrow-prev {
         margin: 0;
         font-size: 16px;
         margin-bottom: 48px;
     }
-
-    .wrapper-arrow-prev-space{
-       display: none;
-       
+    .wrapper-arrow-prev-space {
+        display: none;
     }
-
     .form-search-name {
         padding-top: 48px;
         gap: 16px;

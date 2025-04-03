@@ -236,7 +236,6 @@ h3 {
 .component-load-dpi {
     width: 100%;
     height: 100%;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -368,10 +367,9 @@ h3 {
     color: var(--blanco);
 }
 
-.wrapper-arrow-prev-space{
+.wrapper-arrow-prev-space {
     margin-top: 120px;
     margin-bottom: 32px;
-   
 }
 
 .wrapper-arrow-prev a {
@@ -390,8 +388,6 @@ h3 {
     border: 1px solid var(--blanco);
     color: var(--blanco)!important;
 }
-
-
 
 .content-function {
     width: 50%;
@@ -420,7 +416,6 @@ h3 {
     align-items: start;
     gap: 20px;
 }
-
 
 .wrapper-content-alert img {
     width: 60px;
