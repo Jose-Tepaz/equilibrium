@@ -235,6 +235,8 @@ h3 {
 
 .component-load-dpi {
     width: 100%;
+    height: 100%;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -366,13 +368,30 @@ h3 {
     color: var(--blanco);
 }
 
+.wrapper-arrow-prev-space{
+    margin-top: 120px;
+    margin-bottom: 32px;
+   
+}
+
 .wrapper-arrow-prev a {
     display: flex;
     padding: 10px;
     background: #EFF0F6;
+    border: 1px solid transparent;
     border-radius: 30px;
     cursor: pointer;
+    color: var(--black-1);
+    transition: 0.3s ease-in-out;
 }
+
+.wrapper-arrow-prev a:hover {
+    background: transparent;
+    border: 1px solid var(--blanco);
+    color: var(--blanco)!important;
+}
+
+
 
 .content-function {
     width: 50%;
@@ -402,9 +421,6 @@ h3 {
     gap: 20px;
 }
 
-.wrapper-content-alert {
-    width: 100%;
-}
 
 .wrapper-content-alert img {
     width: 60px;
@@ -489,6 +505,8 @@ h3 {
     align-items: center;
     justify-content: center;
     gap: 0px;
+    width: 100%;
+    margin-top: 35%;
 }
 
 .paciente-no-existe img {
